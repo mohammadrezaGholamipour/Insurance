@@ -1,0 +1,11 @@
+<template>
+  <div>اخرین اخبار</div>
+</template>
+
+<script>
+export default {
+  name: "NewsPage",
+};
+</script>
+
+<style></style>

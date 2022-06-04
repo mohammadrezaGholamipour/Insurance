@@ -1,0 +1,148 @@
+<template>
+  <FirstLoading v-if="Loading" />
+  <q-layout v-show="!Loading" view="hHh lpr fFf" class="layout non-selectable">
+    <!-- Header -->
+    <FullHeader>
+      <!-- MenuMobileBtn -->
+      <q-btn
+        :icon="MenuMobile ? 'close' : ' menu'"
+        @click="MenuMobileBtn"
+        id="MenuMobileBtn"
+        text-color="white"
+        size="lg"
+      >
+        <q-tooltip class="bg-info mobile-hide desktop-only">منو</q-tooltip>
+      </q-btn>
+    </FullHeader>
+
+    <!-- MenuMobile -->
+    <q-drawer
+      v-model="MenuMobile"
+      behavior="mobile"
+      :width="200"
+      side="right"
+      elevated
+      overlay
+    >
+      <MenuMobile :Menu="Menu" />
+    </q-drawer>
+    <!-- MainPage -->
+    <q-inner-loading dark class="Loading" :showing="InnerLoading">
+      <q-spinner-gears size="70px" color="primary" />
+    </q-inner-loading>
+    <transition
+      appear
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+    >
+      <q-page-container class="Page shadow-5 q-mx-auto">
+        <router-view />
+        <q-page-scroller
+          position="bottom-right"
+          :scroll-offset="150"
+          :offset="[18, 18]"
+        >
+          <q-btn fab icon="keyboard_arrow_up" color="accent" />
+        </q-page-scroller>
+      </q-page-container>
+    </transition>
+    <!-- Footer -->
+  </q-layout>
+</template>
+
+<script>
+import { computed, onMounted, ref, watch } from "@vue/runtime-core";
+import MenuMobile from "../components/Header/sections/MenuMobile";
+import FullHeader from "src/components/Header/FullHeader.vue";
+import FirstLoading from "../components/FirstLoading.vue";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
+export default {
+  name: "MainLayout",
+  components: {
+    FirstLoading,
+    FullHeader,
+    MenuMobile,
+  },
+
+  setup() {
+    const InnerLoading = ref(true);
+    const Loading = ref(true);
+    const store = useStore();
+    const Rout = useRoute();
+    // InnerLoading
+    watch(Rout, () => {
+      InnerLoading.value = true;
+      setTimeout(() => {
+        InnerLoading.value = false;
+      }, 1000);
+    });
+    // SupaBase Request
+    store.dispatch("SupabaseMenu");
+    store.dispatch("SupabaseSocial");
+    store.dispatch("SupabaseAccounts");
+
+    // Loading
+    onMounted(() => {
+      InnerLoading.value = false;
+      setTimeout(() => {
+        Loading.value = false;
+      }, 5000);
+    });
+    //  MenuMobile
+    const MenuMobileBtn = () => {
+      store.commit("MenuMobileBtn");
+    };
+    const MenuMobile = computed({
+      get() {
+        return store.state.MenuMobile;
+      },
+      set() {
+        store.commit("MenuMobileBtn");
+      },
+    });
+    const Menu = computed(() => {
+      return store.state.Menu;
+    });
+    // finish
+    return {
+      Menu,
+      store,
+      Loading,
+      MenuMobile,
+      InnerLoading,
+      MenuMobileBtn,
+    };
+  },
+};
+</script>
+
+<style scoped>
+#MenuMobileBtn {
+  border: 2.5px solid white;
+  border-radius: 17%;
+  display: none;
+}
+@media only screen and (max-width: 845px) {
+  #MenuMobileBtn {
+    display: inline;
+    margin: 0 5px;
+    min-height: 0;
+    padding: 0;
+  }
+}
+.layout {
+  background-image: url(../assets/Image/back-base.png);
+}
+.Page {
+  background-color: white;
+  border-radius: 30px;
+  max-width: 1338px;
+  overflow: hidden;
+  margin-top: 1vw;
+  padding: 5px;
+}
+.Loading {
+  z-index: 2;
+}
+</style>
