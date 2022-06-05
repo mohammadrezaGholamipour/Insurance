@@ -308,9 +308,6 @@ export default store(function () {
       MenuMobileBtn(state) {
         state.MenuMobile = !state.MenuMobile;
       },
-      insurancesList(state, data) {
-        state.insurancesList = data;
-      },
       Banner(state, data) {
         state.Banner = data;
       },
@@ -319,7 +316,6 @@ export default store(function () {
       },
       InsurancesList(state, data) {
         state.InsurancesList = data;
-        console.log(data);
       },
       InsuranceStep(state, data) {
         state.InsuranceStep = data;
