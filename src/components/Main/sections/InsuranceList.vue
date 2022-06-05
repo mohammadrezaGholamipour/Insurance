@@ -1,13 +1,7 @@
 <template>
   <div id="InsuranceList">
-    <div
-      id="InsuranceItems"
-      class="shadow-3"
-      v-for="items in InsurancesList"
-      :key="items"
-    >
-      <img :src="items" width="80" height="80" alt="بیمه" />
- 
+    <div id="InsuranceItems" v-for="items in InsurancesList" :key="items">
+      <img :src="items" width="64" height="64" alt="بیمه" />
     </div>
   </div>
 </template>
@@ -38,7 +32,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   display: flex;
-  width: 360px;
+  width: 252px;
 }
 #InsuranceItems {
   justify-content: center;
@@ -46,7 +40,7 @@ export default {
   align-items: center;
   border-radius: 10px;
   display: flex;
-  margin: 5px;
+  margin: 10px;
 }
 #InsuranceItems p {
   margin: 0;
