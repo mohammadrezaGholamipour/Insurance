@@ -1,7 +1,13 @@
 <template>
   <div id="InsuranceList">
-    <div id="InsuranceItems" v-for="items in InsurancesList" :key="items">
+    <div
+      v-for="items in InsurancesList"
+      id="InsuranceItems"
+      class="shadow-4"
+      :key="items"
+    >
       <img :src="items" width="64" height="64" alt="بیمه" />
+      <p>بیمه</p>
     </div>
   </div>
 </template>

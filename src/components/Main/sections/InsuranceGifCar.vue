@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-5 q-pa-sm">
+  <div id="Gif" class="shadow-5 q-pa-sm">
     <q-skeleton v-if="!Gif" width="250px" height="200px" />
     <img :src="Gif" v-show="!!Gif" alt="بیمه ماشین" width="250" height="200" />
   </div>
@@ -19,3 +19,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+@media screen and (max-width: 965px) {
+  #Gif {
+    display: none;
+  }
+}
+</style>
