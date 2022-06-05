@@ -6,8 +6,8 @@
       v-for="items in InsurancesList"
       :key="items"
     >
-      <img :src="items" width="64" height="64" alt="بیمه" />
-      <p>درمان تکمیلی</p>
+      <img :src="items" width="100" height="100" alt="بیمه" />
+      
     </div>
   </div>
 </template>
