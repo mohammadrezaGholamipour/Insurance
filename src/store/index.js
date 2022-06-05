@@ -384,7 +384,7 @@ export default store(function () {
       async SupabaseInsurancesList({ commit }) {
         try {
           const InsurancesList = [];
-          for (let index = 14; index < 20; index++) {
+          for (let index = 14; index < 22; index++) {
             const { data } = await supabase.storage
               .from("public")
               .download(`insurances/Bimeh/${index}.png`);

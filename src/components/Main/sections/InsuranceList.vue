@@ -38,7 +38,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   display: flex;
-  width: 252px;
+  width: 336px;
 }
 #InsuranceItems {
   justify-content: center;
