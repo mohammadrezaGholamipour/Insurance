@@ -50,8 +50,8 @@ export default {
   width: 336px;
 }
 #InsuranceList img {
-  border: solid 2px rgb(192, 192, 192);
-  border-radius: 5px;
+border: 2px solid orange;
+  border-radius: 17px;
 }
 #InsuranceItems p {
   margin: 0;

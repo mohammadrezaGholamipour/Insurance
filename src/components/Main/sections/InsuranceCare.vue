@@ -6,7 +6,6 @@
       alternative-labels
       v-model="Step"
       ref="stepper"
-      bordered
       animated
     >
       <q-step
@@ -130,6 +129,8 @@ export default {
   width: 100%;
 }
 #MainStepper {
+  padding: 10px 0;
+
   justify-content: center;
   flex-wrap: wrap-reverse;
   align-items: center;
