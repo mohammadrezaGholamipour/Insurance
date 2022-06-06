@@ -20,7 +20,7 @@ export default {
 };
 </script>
 <style scoped>
-@media screen and (max-width: 965px) {
+@media screen and (max-width: 1068px) {
   #Gif {
     display: none;
   }

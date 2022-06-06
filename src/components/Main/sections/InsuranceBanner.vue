@@ -1,6 +1,7 @@
 <template>
   <div>
     <q-banner
+      v-show="!!Banner"
       class="text-white q-py-xs shadow-5"
       v-for="items in Banner"
       :class="items.Class"
@@ -9,8 +10,8 @@
     >
       <div class="text">
         <img
-          :src="items.Src"
           alt="بیمه ماشین"
+          :src="items.Src"
           height="64"
           width="64"
           id="Icon"
@@ -20,6 +21,11 @@
         </p>
       </div>
     </q-banner>
+    <div v-if="!Banner">
+      <q-skeleton id="skeletonBanner" class="Banner1" width="437.531px" height="72px" />
+      <q-skeleton id="skeletonBanner" class="q-my-sm" width="437.531px" height="72px" />
+      <q-skeleton id="skeletonBanner" class="Banner3" width="437.531px" height="72px" />
+    </div>
   </div>
 </template>
 
@@ -41,10 +47,6 @@ export default {
 </script>
 
 <style scoped>
-.BorderStyle {
-  border-bottom-left-radius: 40px;
-  border-top-right-radius: 40px;
-}
 .Banner1 {
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
@@ -62,5 +64,10 @@ export default {
 .font {
   text-align: center;
   font-size: 12pt;
+}
+@media screen and (max-width: 400px) {
+  #skeletonBanner {
+   width: 336px !important;
+  }
 }
 </style>
