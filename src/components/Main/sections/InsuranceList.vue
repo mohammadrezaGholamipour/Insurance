@@ -10,7 +10,7 @@
       alt="بیمه"
       width="68"
     />
-    <template v-for="items in 8" :key="items">
+    <template v-for="items in 12" :key="items">
       <q-skeleton
         v-if="!InsurancesList"
         class="shadow-5 q-ma-sm"
