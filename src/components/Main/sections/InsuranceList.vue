@@ -9,9 +9,11 @@
       height="68"
       alt="بیمه"
       width="68"
+      id="img"
     />
     <template v-for="items in 12" :key="items">
       <q-skeleton
+        id="img"
         v-if="!InsurancesList"
         class="shadow-5 q-ma-sm"
         width="68px"
@@ -49,8 +51,8 @@ export default {
   display: flex;
   width: 336px;
 }
-#InsuranceList img {
-border: 2px solid orange;
+#img {
+  border: 2px solid orange;
   border-radius: 17px;
 }
 #InsuranceItems p {

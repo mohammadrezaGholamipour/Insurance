@@ -36,6 +36,7 @@
                 :key="items.Step"
                 behavior="dialog"
                 class="q-ma-sm"
+                style="width: 210px"
                 use-input
               >
                 <template v-slot:no-option>
@@ -59,6 +60,7 @@
               <q-btn
                 icon-right="fa-solid fa-caret-right"
                 @click="$refs.stepper.next()"
+                 v-show="4 !== items.Step"
                 label="مرحله بعد"
                 color="primary"
                 fab-mini
@@ -140,6 +142,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   display: flex;
+  width: 452px;
 }
 #Input {
   flex-direction: row-reverse;

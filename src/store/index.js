@@ -374,7 +374,7 @@ export default store(function () {
         try {
           const { data } = await supabase.storage
             .from("public")
-            .download("gif/Gif-Tabligh.gif");
+            .download("gif/animate-care6.gif");
           commit("Gif", data);
         } catch (error) {
           console.log(error.message);
