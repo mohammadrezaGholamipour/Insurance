@@ -2,6 +2,7 @@
   <div id="InsuranceList">
     <img
       v-for="items in InsurancesList"
+      v-show="!!InsurancesList"
       class="shadow-5 q-ma-sm"
       :src="items"
       :key="items"
@@ -9,6 +10,14 @@
       alt="بیمه"
       width="68"
     />
+    <template v-for="items in 8" :key="items">
+      <q-skeleton
+        v-if="!InsurancesList"
+        class="shadow-5 q-ma-sm"
+        width="68px"
+        height="68px"
+      />
+    </template>
   </div>
 </template>
 
@@ -38,10 +47,11 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   display: flex;
-  width: 368px;
+  width: 336px;
 }
-#InsuranceList img{
-border-radius: 5px;
+#InsuranceList img {
+  border: solid 2px rgb(192, 192, 192);
+  border-radius: 5px;
 }
 #InsuranceItems p {
   margin: 0;
