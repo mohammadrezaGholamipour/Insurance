@@ -3,8 +3,8 @@
     <!-- /////// -->
     <div id="Row1">
       <InsuranceBanner />
-      <InsuranceGifCar />
       <InsuranceList />
+      <InsuranceGifCar />
     </div>
     <!-- /////// -->
     <hr class="Hr" />
