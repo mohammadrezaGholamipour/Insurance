@@ -126,6 +126,9 @@ export default {
 };
 </script>
 <style>
+#Stepper {
+  width: 100%;
+}
 #MainStepper {
   justify-content: center;
   flex-wrap: wrap-reverse;

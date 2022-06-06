@@ -1,7 +1,7 @@
 <template>
   <div id="Gif" class="shadow-5 q-pa-sm">
-    <q-skeleton v-if="!Gif" width="250px" height="200px" />
-    <img :src="Gif" v-show="!!Gif" alt="بیمه ماشین" width="250" height="200" />
+    <q-skeleton v-if="!Gif" width="255px" height="255px" />
+    <img :src="Gif" v-show="!!Gif" alt="بیمه ماشین" width="255" height="220" />
   </div>
 </template>
 
