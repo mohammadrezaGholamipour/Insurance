@@ -7,8 +7,8 @@
     <q-btn
       v-for="(items, index) in Accounts"
       :text-color="items.TextColor"
-      :icon="items.Icon"
       class="q-mx-sm Btn"
+      :icon="items.Icon"
       :to="items.Link"
       :key="index"
       dense

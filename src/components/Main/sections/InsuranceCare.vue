@@ -26,6 +26,7 @@
           <div id="LeftStep">
             <div id="Input">
               <q-select
+                color="red"
                 @update:modelValue="HandelInputInsurence($event, index)"
                 v-for="(items, index) in insurancesInput"
                 v-show="Step === items.Step"
@@ -60,7 +61,7 @@
               <q-btn
                 icon-right="fa-solid fa-caret-right"
                 @click="$refs.stepper.next()"
-                 v-show="4 !== items.Step"
+                v-show="4 !== items.Step"
                 label="مرحله بعد"
                 color="primary"
                 fab-mini
@@ -77,7 +78,7 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
 
 const stringOptions = ["Google", "Facebook", "Twitter", "Apple", "Oracle"];
@@ -131,11 +132,10 @@ export default {
   width: 100%;
 }
 #MainStepper {
-  padding: 10px 0;
-
   justify-content: center;
   flex-wrap: wrap-reverse;
   align-items: center;
+  padding: 10px 0;
   display: flex;
 }
 #LeftStep {
@@ -170,5 +170,22 @@ export default {
   .Mobile {
     display: none;
   }
+}
+.q-dialog__inner {
+  width: 400px !important;
+  padding: 0 !important;
+  text-align: center;
+  margin: auto;
+  right: 0;
+  left: 0;
+}
+.q-virtual-scroll__content {
+  background-color: rgb(55, 132, 247);
+}
+.q-item__label {
+  color: white !important;
+}
+.q-item{
+  border-bottom: 1px solid white !important;
 }
 </style>

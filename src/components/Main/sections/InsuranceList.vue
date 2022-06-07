@@ -13,11 +13,11 @@
     />
     <template v-for="items in 12" :key="items">
       <q-skeleton
-        id="img"
-        v-if="!InsurancesList"
         class="shadow-5 q-ma-sm"
-        width="68px"
+        v-if="!InsurancesList"
         height="68px"
+        width="68px"
+        id="img"
       />
     </template>
   </div>
