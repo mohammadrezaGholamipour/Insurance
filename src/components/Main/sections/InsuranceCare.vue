@@ -172,7 +172,7 @@ export default {
   }
 }
 .q-dialog__inner {
-  width: 400px !important;
+  max-width: 300px !important;
   padding: 0 !important;
   text-align: center;
   margin: auto;
@@ -185,7 +185,45 @@ export default {
 .q-item__label {
   color: white !important;
 }
-.q-item{
+.q-item {
   border-bottom: 1px solid white !important;
+}
+.q-field__control {
+  flex-direction: row-reverse;
+}
+.q-field__after,
+.q-field__append {
+  padding: 0 !important;
+}
+.q-field__native,
+.q-field__prefix,
+.q-field__suffix,
+.q-field__input {
+  color: rgb(223, 63, 63);
+}
+
+.q-field__label {
+  right: 0 !important;
+  top: 18px;
+  max-width: 100%;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0.00937em;
+  text-decoration: inherit;
+  text-transform: inherit;
+  transform-origin: right top !important;
+  transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1),
+    max-width 0.324s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.q-field__native {
+  flex-direction: row-reverse;
+}
+.q-field__input {
+  text-align: right !important;
 }
 </style>
