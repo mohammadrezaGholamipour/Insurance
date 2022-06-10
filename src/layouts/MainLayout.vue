@@ -71,11 +71,12 @@ export default {
     const store = useStore();
     const Rout = useRoute();
     // InnerLoading
+
     watch(Rout, () => {
       InnerLoading.value = true;
       setTimeout(() => {
         InnerLoading.value = false;
-      }, 1000);
+      }, 1500);
     });
     // SupaBase Request
     store.dispatch("SupabaseMenu");

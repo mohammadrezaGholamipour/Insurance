@@ -26,6 +26,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^8.5.0",
     "eslint-webpack-plugin": "^3.1.1",
+    "postcss-rtlcss": "^3.6.3",
     "prettier": "^2.5.1"
   },
   "browserslist": [

@@ -32,18 +32,18 @@
                 v-show="Step === items.Step"
                 :modelValue="items.Value"
                 :options="items.Options"
+                style="width: 210px"
                 :label="items.Label"
                 @filter="filterFn"
                 :key="items.Step"
                 behavior="dialog"
                 class="q-ma-sm"
-                style="width: 210px"
                 use-input
               >
                 <template v-slot:no-option>
                   <q-item>
                     <q-item-section class="text-grey">
-                      No results
+                      پیدا نشد
                     </q-item-section>
                   </q-item>
                 </template>
@@ -68,7 +68,7 @@
               />
             </div>
           </div>
-          <div id="RightStep" class="shadow-5 q-pa-sm">
+          <div id="RightStep" class="shadow-5 q-pa-sm q-ma-sm">
             <img :src="items.Gif" width="230" height="200" alt="'گیف" />
           </div>
         </div>
@@ -100,12 +100,13 @@ export default {
       Store.commit("HandelInputInsurence", { Data, index });
     };
     return {
-      InsuranceStep,
-      insurancesInput,
       HandelInputInsurence,
+      insurancesInput,
+      InsuranceStep,
+      stringOptions,
       Store,
       Step,
-      stringOptions,
+
       options,
 
       filterFn(val, update) {
@@ -127,7 +128,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 #Stepper {
   width: 100%;
 }
@@ -135,7 +136,6 @@ export default {
   justify-content: center;
   flex-wrap: wrap-reverse;
   align-items: center;
-  padding: 10px 0;
   display: flex;
 }
 #LeftStep {

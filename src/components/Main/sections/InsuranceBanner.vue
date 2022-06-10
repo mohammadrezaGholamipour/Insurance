@@ -1,6 +1,7 @@
 <template>
   <div>
     <q-banner
+    
       v-show="!!Banner"
       class="text-white q-py-xs shadow-5"
       v-for="items in Banner"
@@ -16,32 +17,46 @@
           width="64"
           id="Icon"
         />
-        <p class="q-ma-none font">
-          {{ items.Banner }}
-        </p>
+        <p class="q-ma-none font" v-text="items.Banner"></p>
       </div>
     </q-banner>
     <div v-if="!Banner">
-      <q-skeleton id="skeletonBanner" class="Banner1" width="437.531px" height="72px" />
-      <q-skeleton id="skeletonBanner" class="q-my-sm" width="437.531px" height="72px" />
-      <q-skeleton id="skeletonBanner" class="Banner3" width="437.531px" height="72px" />
+      <q-skeleton
+        id="skeletonBanner"
+        class="Banner1"
+        width="437.531px"
+        height="72px"
+      />
+      <q-skeleton
+        id="skeletonBanner"
+        class="q-my-sm"
+        width="437.531px"
+        height="72px"
+      />
+      <q-skeleton
+        id="skeletonBanner"
+        class="Banner3"
+        width="437.531px"
+        height="72px"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import { computed } from "@vue/runtime-core";
+import { computed, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
 
 export default {
   name: "InsuranceBanner",
   components: {},
   setup() {
+    const test = ref("salam");
     const Store = useStore();
     const Banner = computed(() => {
       return Store.getters.StateGetter("Banner");
     });
-    return { Store, Banner };
+    return { Store, Banner, test };
   },
 };
 </script>
@@ -67,7 +82,7 @@ export default {
 }
 @media screen and (max-width: 400px) {
   #skeletonBanner {
-   width: 336px !important;
+    width: 336px !important;
   }
 }
 </style>

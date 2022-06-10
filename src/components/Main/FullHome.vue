@@ -13,12 +13,11 @@
       <InsuranceCare />
     </div>
     <!-- /////// -->
-    <hr class="Hr" />
-    <!-- /////// -->
-    <div id="Row3">
-      <InsuranceInfo />
+     <div id="Row3">
+      <InsuranceText />
     </div>
-    <!-- /////// -->
+     <!-- /////// -->
+     <hr class="Hr" />
   </div>
 </template>
 
@@ -26,8 +25,8 @@
 import InsuranceBanner from "./sections/InsuranceBanner.vue";
 import InsuranceGifCar from "./sections/InsuranceGifCar.vue";
 import InsuranceCare from "./sections/InsuranceCare.vue";
-import InsuranceInfo from "./sections/InsuranceInfo.vue";
 import InsuranceList from "./sections/InsuranceList.vue";
+import InsuranceText from "./sections/InsuranceText.vue";
 
 export default {
   name: "FullHome",
@@ -35,7 +34,7 @@ export default {
     InsuranceBanner,
     InsuranceGifCar,
     InsuranceCare,
-    InsuranceInfo,
+    InsuranceText,
     InsuranceList,
   },
 };
@@ -57,13 +56,6 @@ export default {
   width: 100%;
 }
 #Row2 {
-  justify-content: space-around;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-  display: flex;
-  width: 100%;
-}
-#Row3 {
   justify-content: space-around;
   flex-direction: row-reverse;
   flex-wrap: wrap;
