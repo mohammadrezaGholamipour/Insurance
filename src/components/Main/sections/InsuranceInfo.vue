@@ -1,5 +1,5 @@
 <template>
-  <div id="TabInfo" class="rounded-borders shadow-5" >
+  <div id="TabInfo" class="rounded-borders shadow-5">
     <template v-for="items in TabInfo" :key="items">
       <div id="HeaderTabInfo">
         <img src="" alt="" />
@@ -31,14 +31,14 @@ export default {
 </script>
 <style scoped>
 #TabInfo {
+  border: 1px solid rgba(0, 0, 0, 0.12);
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
   padding: 20px;
   display: flex;
-  width: 60%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  width: 800px;
 }
 #HeaderTabInfo {
   justify-content: center;

@@ -6,22 +6,24 @@
 </template>
 
 <script>
-import InsuranceInfo from "./InsuranceInfo.vue";
 import InsuranceQuestion from "./InsuranceQuestion.vue";
+import InsuranceInfo from "./InsuranceInfo.vue";
+
 export default {
   components: {
-    InsuranceInfo,
     InsuranceQuestion,
+    InsuranceInfo,
   },
 };
 </script>
 
 <style scoped>
 #Text {
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  align-items: flex-end;
   flex-direction: row;
   display: flex;
-  padding: 10px 0;
+  width: 100%;
 }
 </style>

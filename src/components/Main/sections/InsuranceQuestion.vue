@@ -1,16 +1,15 @@
 <template>
-  <div id="InsuranceQuestion" class="shadow-5">
+  <div id="InsuranceQuestion" class="shadow-5 rounded-borders">
     <q-list bordered class="rounded-borders">
       <q-expansion-item
         v-for="items in ListQuestions"
-        :key="items"
-        expand-separator
-        header-class="test"
         :label="items.Question"
-       
+        header-class="List"
+        expand-separator
+        :key="items"
       >
         <q-card>
-          <q-card-section >
+          <q-card-section>
             {{ items.Answer }}
           </q-card-section>
         </q-card>
@@ -34,18 +33,27 @@ export default {
 };
 </script>
 <style>
-#InsuranceQuestion {
-  width: 35%;
-}
-.test{
-  display: flex ;
-  width: 100% ;
-  align-items: center ;
+.List {
+  border-bottom: 1px solid rgb(126, 126, 126) !important;
+  justify-content: space-between;
   flex-direction: row-reverse;
-  justify-content: space-between ; 
+  align-items: center;
+  display: flex;
+  width: 100%;
+
   text-align: right;
 }
-.q-card__section{
+.q-card__section {
   text-align: center;
+}
+@media screen and (max-width: 1365px) {
+  #InsuranceQuestion {
+    margin-top: 10px;
+  }
+}
+@media screen and (min-width: 1366px) {
+  #InsuranceQuestion {
+    width: 465px;
+  }
 }
 </style>

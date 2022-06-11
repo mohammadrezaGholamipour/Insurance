@@ -26,9 +26,9 @@
           <div id="LeftStep">
             <div id="Input">
               <q-select
-                color="red"
                 @update:modelValue="HandelInputInsurence($event, index)"
                 v-for="(items, index) in insurancesInput"
+                popup-content-class="text-white"
                 v-show="Step === items.Step"
                 :modelValue="items.Value"
                 :options="items.Options"
@@ -38,6 +38,7 @@
                 :key="items.Step"
                 behavior="dialog"
                 class="q-ma-sm"
+                color="grey-10"
                 use-input
               >
                 <template v-slot:no-option>
@@ -128,7 +129,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 #Stepper {
   width: 100%;
 }
@@ -182,9 +183,7 @@ export default {
 .q-virtual-scroll__content {
   background-color: rgb(55, 132, 247);
 }
-.q-item__label {
-  color: white !important;
-}
+
 .q-item {
   border-bottom: 1px solid white !important;
 }

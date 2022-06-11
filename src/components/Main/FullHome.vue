@@ -13,11 +13,12 @@
       <InsuranceCare />
     </div>
     <!-- /////// -->
-     <div id="Row3">
+    <hr class="Hr" />
+    <!-- /////// -->
+    <div id="Row3">
       <InsuranceText />
     </div>
-     <!-- /////// -->
-     <hr class="Hr" />
+    <!-- /////// -->
   </div>
 </template>
 
@@ -56,6 +57,13 @@ export default {
   width: 100%;
 }
 #Row2 {
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+}
+#Row3 {
   justify-content: space-around;
   flex-direction: row-reverse;
   flex-wrap: wrap;
