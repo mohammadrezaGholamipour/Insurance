@@ -33,6 +33,9 @@ export default {
 };
 </script>
 <style>
+#InsuranceQuestion {
+  max-width: 577px;
+}
 .List {
   border-bottom: 1px solid rgb(126, 126, 126) !important;
   justify-content: space-between;
@@ -46,14 +49,9 @@ export default {
 .q-card__section {
   text-align: center;
 }
-@media screen and (max-width: 1365px) {
+@media screen and (max-width: 1186px) {
   #InsuranceQuestion {
     margin-top: 10px;
-  }
-}
-@media screen and (min-width: 1366px) {
-  #InsuranceQuestion {
-    width: 465px;
   }
 }
 </style>

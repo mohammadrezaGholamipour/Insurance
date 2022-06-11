@@ -130,9 +130,6 @@ export default {
 };
 </script>
 <style>
-#Stepper {
-  width: 100%;
-}
 #MainStepper {
   justify-content: center;
   flex-wrap: wrap-reverse;
@@ -170,6 +167,11 @@ export default {
 @media screen and (max-width: 651px) {
   .Mobile {
     display: none;
+  }
+}
+@media screen and (max-width: 848px) {
+  #Stepper {
+    width: 100%;
   }
 }
 .q-dialog__inner {

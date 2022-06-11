@@ -1,9 +1,9 @@
 <template>
-  <div id="TabInfo" class="rounded-borders shadow-5">
-    <template v-for="items in TabInfo" :key="items">
+  <div id="InsuranceInfo" class="rounded-borders shadow-5">
+    <template v-for="items in InsuranceInfo" :key="items">
       <div id="HeaderTabInfo">
-        <img src="" alt="" />
-        <h5 class="q-ma-none">{{ items.Title }}</h5>
+        <img :src="items.Image" :alt="items.Title" width="64" height="64" />
+        <h5 class="q-ma-none q-pt-xs">{{ items.Title }}</h5>
       </div>
       <p>{{ items.Info }}</p>
       <hr style="width: 100%" class="q-ma-none" />
@@ -19,30 +19,30 @@ export default {
 
   setup() {
     const Store = useStore();
-    const TabInfo = computed(() => {
-      return Store.getters.StateGetter("TabInfo");
+    const InsuranceInfo = computed(() => {
+      return Store.getters.StateGetter("InsuranceInfo");
     });
     return {
+      InsuranceInfo,
       Store,
-      TabInfo,
     };
   },
 };
 </script>
 <style scoped>
-#TabInfo {
+#InsuranceInfo {
   border: 1px solid rgba(0, 0, 0, 0.12);
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
+  max-width: 600px;
   padding: 20px;
   display: flex;
-  width: 800px;
 }
 #HeaderTabInfo {
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
   display: flex;
 }

@@ -57,7 +57,7 @@ export default {
   width: 100%;
 }
 #Row2 {
-  justify-content: space-around;
+  justify-content: end;
   flex-direction: row-reverse;
   flex-wrap: wrap;
   display: flex;
