@@ -12,10 +12,10 @@
     <div id="Row2">
       <InsuranceCare />
       <img
-        id="InsuranceImage"
         src="../../assets/Image/car-insurance.jpg"
-        width="530"
+        id="InsuranceImage"
         height="344"
+        width="530"
         alt="بیمه"
       />
     </div>
