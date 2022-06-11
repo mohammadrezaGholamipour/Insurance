@@ -11,6 +11,13 @@
     <!-- /////// -->
     <div id="Row2">
       <InsuranceCare />
+      <img
+        id="InsuranceImage"
+        src="../../assets/Image/car-insurance.jpg"
+        width="600"
+        height="344"
+        alt="بیمه"
+      />
     </div>
     <!-- /////// -->
     <hr class="Hr" />
@@ -57,8 +64,9 @@ export default {
   width: 100%;
 }
 #Row2 {
-  justify-content: end;
   flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   display: flex;
   width: 100%;

@@ -7,6 +7,7 @@
       v-model="Step"
       ref="stepper"
       animated
+      flat
     >
       <q-step
         v-for="items in InsuranceStep"
