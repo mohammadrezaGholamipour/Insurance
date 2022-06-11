@@ -14,7 +14,7 @@
       <img
         id="InsuranceImage"
         src="../../assets/Image/car-insurance.jpg"
-        width="600"
+        width="530"
         height="344"
         alt="بیمه"
       />
