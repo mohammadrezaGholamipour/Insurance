@@ -11,8 +11,15 @@
     <!-- /////// -->
     <div id="Row2">
       <InsuranceCare />
+      <q-skeleton
+        v-if="!InsuranceCarGif"
+        height="344px"
+        width="526px"
+        alt="بیمه"
+      />
       <img
-        src="../../assets/Image/car-insurance.jpg"
+        v-show="!!InsuranceCarGif"
+        :src="InsuranceCarGif"
         id="InsuranceImage"
         height="344"
         width="526"
@@ -26,7 +33,7 @@
       <InsuranceText />
     </div>
     <!-- /////// -->
-     <hr class="Hr" />
+    <hr class="Hr" />
     <!-- /////// -->
   </div>
 </template>
@@ -37,6 +44,8 @@ import InsuranceGifCar from "./sections/InsuranceGifCar.vue";
 import InsuranceCare from "./sections/InsuranceCare.vue";
 import InsuranceList from "./sections/InsuranceList.vue";
 import InsuranceText from "./sections/InsuranceText.vue";
+import { computed } from "@vue/runtime-core";
+import { useStore } from "vuex";
 
 export default {
   name: "FullHome",
@@ -46,6 +55,15 @@ export default {
     InsuranceCare,
     InsuranceText,
     InsuranceList,
+  },
+  setup() {
+    const Store = useStore();
+    const InsuranceCarGif = computed(() => {
+      return Store.getters.StateGetter("InsuranceCarGif");
+    });
+    return {
+      InsuranceCarGif,
+    };
   },
 };
 </script>

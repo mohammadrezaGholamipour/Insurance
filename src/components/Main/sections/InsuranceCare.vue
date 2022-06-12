@@ -1,5 +1,6 @@
 <template>
-  <div id="Stepper">
+  <q-skeleton id="SkeltoninsuranceCar" v-if="!InsuranceStep"  />
+  <div id="Stepper" v-show="!!InsuranceStep & !!insurancesInput">
     <q-stepper
       v-show="InsuranceStep.length === 4"
       header-class="Mobile"
@@ -227,5 +228,10 @@ export default {
 }
 .q-field__input {
   text-align: right !important;
+}
+#SkeltoninsuranceCar {
+  width: 714px;
+  height: 343px;
+  min-width: 270px;
 }
 </style>

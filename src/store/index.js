@@ -7,12 +7,13 @@ export default store(function () {
     state: {
       MenuMobile: false,
       Menu: "",
-      Gif: "",
       Social: "",
       Accounts: "",
-      InsurancesList: "",
       Banner: "",
+      InsurancesList: "",
+      Gif: "",
       InsuranceStep: "",
+      InsuranceCarGif: "",
       InsuranceInfo: "",
       InsuranceQuestion: "",
       insurancesInput: [
@@ -157,6 +158,9 @@ export default store(function () {
       Gif(state, data) {
         state.Gif = URL.createObjectURL(data);
       },
+      InsuranceCarGif(state, data) {
+        state.InsuranceCarGif = URL.createObjectURL(data);
+      },
       InsurancesList(state, data) {
         state.InsurancesList = data;
       },
@@ -189,7 +193,7 @@ export default store(function () {
           commit("Social", data);
         } catch (error) {
           console.log(error.message);
-          console.log("لیست منو دریافت نشد");
+          console.log("لیست شبکه های اجتماعی دریافت نشد");
         }
       },
       async SupabaseAccounts({ commit }) {
@@ -198,7 +202,7 @@ export default store(function () {
           commit("Accounts", data);
         } catch (error) {
           console.log(error.message);
-          console.log("لیست منو دریافت نشد");
+          console.log("لیست دکمه های منو دریافت نشد");
         }
       },
       async SupabaseBanner({ commit }) {
@@ -207,7 +211,33 @@ export default store(function () {
           commit("Banner", data);
         } catch (error) {
           console.log(error.message);
-          console.log("اطلاعات بنر های قرمز زرد و سبز دریافت نشد");
+          console.log("اطلاعات بنر های قرمز ابی و سبز دریافت نشد");
+        }
+      },
+      async SupabaseInsurancesList({ commit }) {
+        try {
+          const InsurancesList = [];
+          for (let index = 1; index < 13; index++) {
+            const { data } = await supabase.storage
+              .from("public")
+              .download(`insurances/Bimeh/${index}.png`);
+            InsurancesList.push(URL.createObjectURL(data));
+          }
+          commit("InsurancesList", InsurancesList);
+        } catch (error) {
+          console.log(error.message);
+          console.log("عکس های انواع بیمه دریافت نشد");
+        }
+      },
+      async SupabaseGif({ commit }) {
+        try {
+          const { data } = await supabase.storage
+            .from("public")
+            .download("gif/animate-care6.gif");
+          commit("Gif", data);
+        } catch (error) {
+          console.log(error.message);
+          console.log("گیف دریافت نشد");
         }
       },
       async SupabaseInsuranceStep({ commit }) {
@@ -217,6 +247,17 @@ export default store(function () {
         } catch (error) {
           console.log(error.message);
           console.log("اطلاعات،فرم دریافت نشد");
+        }
+      },
+      async SupabaseInsuranceCarGif({ commit }) {
+        try {
+          const { data } = await supabase.storage
+            .from("public")
+            .download("insurances//Bimeh/car-insurance.jpg");
+          commit("InsuranceCarGif", data);
+        } catch (error) {
+          console.log(error.message);
+          console.log("عکس دریافت نشد");
         }
       },
       async SupabaseInsuranceInfo({ commit }) {
@@ -235,32 +276,6 @@ export default store(function () {
         } catch (error) {
           console.log(error.message);
           console.log("اطلاعات،لیست دریافت نشد");
-        }
-      },
-      async SupabaseGif({ commit }) {
-        try {
-          const { data } = await supabase.storage
-            .from("public")
-            .download("gif/animate-care6.gif");
-          commit("Gif", data);
-        } catch (error) {
-          console.log(error.message);
-          console.log("گیف دریافت نشد");
-        }
-      },
-      async SupabaseInsurancesList({ commit }) {
-        try {
-          const InsurancesList = [];
-          for (let index = 1; index < 13; index++) {
-            const { data } = await supabase.storage
-              .from("public")
-              .download(`insurances/Bimeh/${index}.png`);
-            InsurancesList.push(URL.createObjectURL(data));
-          }
-          commit("InsurancesList", InsurancesList);
-        } catch (error) {
-          console.log(error.message);
-          console.log("گیف دریافت نشد");
         }
       },
     },

@@ -1,6 +1,6 @@
 <template>
   <div id="Gif" class="shadow-5 q-pa-sm">
-    <q-skeleton v-if="!Gif" width="255px" height="255px" />
+    <q-skeleton v-if="!Gif" width="255px" height="220px" />
     <img :src="Gif" v-show="!!Gif" alt="بیمه ماشین" width="255" height="220" />
   </div>
 </template>

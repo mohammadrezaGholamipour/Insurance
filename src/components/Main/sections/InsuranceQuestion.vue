@@ -1,5 +1,10 @@
 <template>
-  <div id="InsuranceQuestion" class="shadow-5 rounded-borders">
+  <q-skeleton id="SkeltonInsuranceQuestion" v-if="!InsuranceQuestion" />
+  <div
+    class="shadow-5 rounded-borders"
+    v-show="!!InsuranceQuestion"
+    id="InsuranceQuestion"
+  >
     <q-list bordered class="rounded-borders">
       <q-expansion-item
         v-for="items in InsuranceQuestion"
@@ -53,5 +58,10 @@ export default {
   #InsuranceQuestion {
     margin-top: 10px;
   }
+}
+#SkeltonInsuranceQuestion {
+  width: 576.41px;
+  height: 1010px;
+  min-width: 270px;
 }
 </style>

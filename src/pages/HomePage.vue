@@ -15,6 +15,7 @@ export default {
     Store.dispatch("SupabaseBanner");
     Store.dispatch("SupabaseInsurancesList");
     Store.dispatch("SupabaseInsuranceStep");
+    Store.dispatch("SupabaseInsuranceCarGif");
     Store.dispatch("SupabaseInsuranceInfo");
     Store.dispatch("SupabaseInsuranceQuestion");
   },

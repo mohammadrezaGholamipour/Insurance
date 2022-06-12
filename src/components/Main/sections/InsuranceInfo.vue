@@ -1,5 +1,10 @@
 <template>
-  <div id="InsuranceInfo" class="rounded-borders shadow-5">
+  <q-skeleton id="SkeltonInsuranceInfo" v-if="!InsuranceInfo" />
+  <div
+    class="rounded-borders shadow-5"
+    v-show="!!InsuranceInfo"
+    id="InsuranceInfo"
+  >
     <template v-for="items in InsuranceInfo" :key="items">
       <div id="HeaderTabInfo">
         <img :src="items.Image" :alt="items.Title" width="64" height="64" />
@@ -59,5 +64,10 @@ export default {
 }
 .q-expansion-item--popup.q-expansion-item--collapsed {
   padding: 0;
+}
+#SkeltonInsuranceInfo {
+  width: 600px;
+  height: 1012.16px;
+  min-width: 270px;
 }
 </style>
