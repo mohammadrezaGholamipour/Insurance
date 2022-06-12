@@ -37,7 +37,7 @@ export default {
   align-items: flex-end;
   text-align: right;
   max-width: 600px;
-  padding: 20px;
+  padding: 17.58px;
   display: flex;
 }
 #HeaderTabInfo {

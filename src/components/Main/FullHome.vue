@@ -15,7 +15,7 @@
         src="../../assets/Image/car-insurance.jpg"
         id="InsuranceImage"
         height="344"
-        width="530"
+        width="526"
         alt="بیمه"
       />
     </div>
@@ -25,6 +25,8 @@
     <div id="Row3">
       <InsuranceText />
     </div>
+    <!-- /////// -->
+     <hr class="Hr" />
     <!-- /////// -->
   </div>
 </template>
