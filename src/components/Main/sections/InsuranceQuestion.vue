@@ -2,7 +2,7 @@
   <div id="InsuranceQuestion" class="shadow-5 rounded-borders">
     <q-list bordered class="rounded-borders">
       <q-expansion-item
-        v-for="items in ListQuestions"
+        v-for="items in InsuranceQuestion"
         :label="items.Question"
         header-class="List"
         expand-separator
@@ -25,10 +25,10 @@ export default {
 
   setup() {
     const Store = useStore();
-    const ListQuestions = computed(() => {
-      return Store.getters.StateGetter("ListQuestions");
+    const InsuranceQuestion = computed(() => {
+      return Store.getters.StateGetter("InsuranceQuestion");
     });
-    return { Store, ListQuestions };
+    return { Store, InsuranceQuestion };
   },
 };
 </script>

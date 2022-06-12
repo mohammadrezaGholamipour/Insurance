@@ -16,6 +16,7 @@ export default {
     Store.dispatch("SupabaseInsurancesList");
     Store.dispatch("SupabaseInsuranceStep");
     Store.dispatch("SupabaseInsuranceInfo");
+    Store.dispatch("SupabaseInsuranceQuestion");
   },
 };
 </script>
