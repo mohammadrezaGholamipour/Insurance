@@ -23,7 +23,21 @@ export default store(function () {
           Options: ["سواری", "بارکش"],
           Value: "",
         },
-        { Step: 1, Label: "برند", Options: ["پژو", "پراید"], Value: "" },
+        {
+          Step: 1,
+          Label: "برند",
+          Options: [
+            "پراید",
+            "تیبا",
+            "ساینا",
+            "کوئیک",
+            "پژو",
+            "دنا",
+            "رانا",
+            "سمند",
+          ],
+          Value: "",
+        },
         { Step: 1, Label: "مدل", Options: ["صندوق دار", "هاچبک"], Value: "" },
         {
           Step: 1,
@@ -124,6 +138,52 @@ export default store(function () {
           Value: "",
         },
       ],
+      CarModels: [
+        {
+          Name: "پراید",
+          Models: ["پراید 111", "پراید 131", "پراید 132", "پراید 141"],
+        },
+        {
+          Name: "پژو",
+          Models: [
+            "LX TU5 پژو پارس",
+            "پژو پارس معمولی",
+            "پژو پارس سال",
+            "ELX پژو پارس",
+            "405 SLX پژو",
+            "405 GLX پژو",
+            "207 SD پژو",
+            "SD 206 پژو",
+            "I 207 پژو",
+            "پژو 2008",
+            "پژو 206",
+          ],
+        },
+        {
+          Name: "تیبا",
+          Models: ["هاچبک", "صندوق دار"],
+        },
+        {
+          Name: "ساینا",
+          Models: ["دنده ای"],
+        },
+        {
+          Name: "کوئیک",
+          Models: ["دنده ای", "اتوماتیک"],
+        },
+        {
+          Name: "دنا",
+          Models: ["دنا معمولی", "دنا پلاس"],
+        },
+        {
+          Name: "رانا",
+          Models: ["EL رانا", "LX رانا"],
+        },
+        {
+          Name: "سمند",
+          Models: ["XU7 سمند سورن", "LX EF7 سمند", "سمند"],
+        },
+      ],
       TarikhOption: [
         {
           day: "numeric",
@@ -175,6 +235,25 @@ export default store(function () {
       },
       HandelInputInsurence(state, { Data, index }) {
         state.insurancesInput[index].Value = Data;
+        if (index === 0) {
+          console.log("مرحله اول");
+          if (state.insurancesInput[0].Value !== Data) {
+            console.log("مرحله دوم");
+            state.insurancesInput.forEach((items) => {
+              items.Value = "";
+            });
+          }
+        }
+        // اینپوت مدل
+        if (index === 1) {
+          const Brand = state.insurancesInput[index].Value;
+          state.CarModels.filter((items) => {
+            if (items.Name === Brand) {
+              state.insurancesInput[2].Options = items.Models;
+            }
+          });
+        }
+        // پایان
       },
     },
     actions: {
