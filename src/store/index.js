@@ -248,18 +248,20 @@ export default store(function () {
       },
       HandelInputInsurence(state, { Data, index }) {
         const insurancesInput = state.insurancesInput;
-        const Brand = state.insurancesInput[index].Value;
+        const Brand = insurancesInput[index].Value;
         const CarModels = state.CarModels;
         const Step1 = insurancesInput.filter((items) => items.Step === 1);
         const Step2 = insurancesInput.filter((items) => items.Step === 2);
         const Step3 = insurancesInput.filter((items) => items.Step === 3);
         ////////////////////////////////////////////////////////////////////
-        state.insurancesInput[index].Value = Data;
         if (index === 0) {
-          if (Step1[0].Value) {
-            console.log(Step1[0].Value !== Data);
+          if (Data) {
+            console.log("if");
             insurancesInput.forEach((items) => (items.Disable = false));
+          }
+          if (Step1[0].Value === Data) {
           } else {
+            console.log("else");
             insurancesInput.forEach((items) => {
               items.Disable = true;
               items.Value = "";
@@ -269,6 +271,9 @@ export default store(function () {
             Step3[0].Disable = false;
           }
         }
+        insurancesInput[index].Value = Data;
+        ////////////////////////////////////
+
         ///////////////////////////////////////////////////////
         if (index === 1) {
           CarModels.filter((items) => {
