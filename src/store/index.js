@@ -102,7 +102,7 @@ export default store(function () {
         {
           Step: 3,
           Label: "سابقه خسارت داشته اید؟",
-          Options: ["بله", "حیر"],
+          Options: ["بله", "خیر"],
           Value: "",
         },
         {
