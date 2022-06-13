@@ -40,7 +40,7 @@
                 :key="items.Step"
                 behavior="dialog"
                 class="q-ma-sm"
-                color="grey-10"
+                color="purple-10"
                 use-input
               >
                 <template v-slot:no-option>

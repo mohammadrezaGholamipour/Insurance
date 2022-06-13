@@ -32,8 +32,8 @@
     </q-inner-loading>
     <transition
       appear
-      enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut"
+      enter-active-class="animated fadeIn"
     >
       <q-page-container class="Page shadow-5 q-mx-auto">
         <router-view />
