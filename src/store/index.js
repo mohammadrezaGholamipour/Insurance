@@ -37,8 +37,15 @@ export default store(function () {
             "سمند",
           ],
           Value: "",
+          Disable: true,
         },
-        { Step: 1, Label: "مدل", Options: ["صندوق دار", "هاچبک"], Value: "" },
+        {
+          Step: 1,
+          Label: "مدل",
+          Options: ["صندوق دار", "هاچبک"],
+          Value: "",
+          Disable: true,
+        },
         {
           Step: 1,
           Label: "سال ساخت",
@@ -62,6 +69,7 @@ export default store(function () {
             "1401",
           ],
           Value: "",
+          Disable: true,
         },
         {
           Step: 2,
@@ -90,6 +98,7 @@ export default store(function () {
             "70%",
           ],
           Value: "",
+          Disable: true,
         },
         {
           Step: 2,
@@ -112,6 +121,7 @@ export default store(function () {
             "70%",
           ],
           Value: "",
+          Disable: true,
         },
         {
           Step: 3,
@@ -124,18 +134,21 @@ export default store(function () {
           Label: "خسارت مالی",
           Options: ["یکبار", "دوبار", "سه بار"],
           Value: "",
+          Disable: true,
         },
         {
           Step: 3,
           Label: "خسارت جانی",
           Options: ["یکبار", "دوبار", "سه بار"],
           Value: "",
+          Disable: true,
         },
         {
           Step: 3,
           Label: "خسارت حوادث راننده",
           Options: ["یکبار", "دوبار", "سه بار"],
           Value: "",
+          Disable: true,
         },
       ],
       CarModels: [
@@ -234,16 +247,12 @@ export default store(function () {
         state.InsuranceQuestion = data;
       },
       HandelInputInsurence(state, { Data, index }) {
-        state.insurancesInput[index].Value = Data;
-        if (index === 0) {
-          console.log("مرحله اول");
-          if (state.insurancesInput[0].Value !== Data) {
-            console.log("مرحله دوم");
-            state.insurancesInput.forEach((items) => {
-              items.Value = "";
-            });
-          }
-        }
+        const insurancesInput = state.insurancesInput;
+
+        const StepOne = insurancesInput.filter((items) => items.Step === 1);
+        console.log(StepOne);
+        state.insurancesInput[index].Value = Data; //انتخاب کاربر
+        
         // اینپوت مدل
         if (index === 1) {
           const Brand = state.insurancesInput[index].Value;

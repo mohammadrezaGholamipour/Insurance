@@ -1,5 +1,5 @@
 <template>
-  <q-skeleton id="SkeltoninsuranceCar" v-if="!InsuranceStep"  />
+  <q-skeleton id="SkeltoninsuranceCar" v-if="!InsuranceStep" />
   <div id="Stepper" v-show="!!InsuranceStep & !!insurancesInput">
     <q-stepper
       v-show="InsuranceStep.length === 4"
@@ -33,14 +33,15 @@
                 popup-content-class="text-white"
                 v-show="Step === items.Step"
                 :modelValue="items.Value"
+                :disable="items.Disable"
                 :options="items.Options"
                 style="width: 210px"
                 :label="items.Label"
                 @filter="filterFn"
                 :key="items.Step"
                 behavior="dialog"
-                class="q-ma-sm"
                 color="purple-10"
+                class="q-ma-sm"
                 use-input
               >
                 <template v-slot:no-option>
@@ -72,7 +73,7 @@
             </div>
           </div>
           <div id="RightStep" class="shadow-5 q-pa-sm q-ma-sm">
-            <img :src="items.Gif" width="230" height="200" alt="'گیف" />
+            <q-img :src="items.Gif" width="230px" height="200px" alt="'گیف" />
           </div>
         </div>
       </q-step>

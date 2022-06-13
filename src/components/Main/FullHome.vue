@@ -17,12 +17,12 @@
         width="526px"
         alt="بیمه"
       />
-      <img
+      <q-img
         v-show="!!InsuranceCarGif"
         :src="InsuranceCarGif"
         id="InsuranceImage"
-        height="344"
-        width="526"
+        height="344px"
+        width="526px"
         alt="بیمه"
       />
     </div>

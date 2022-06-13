@@ -10,11 +10,11 @@
       inline-actions
     >
       <div class="text">
-        <img
+        <q-img
           alt="بیمه ماشین"
           :src="items.Src"
-          height="64"
-          width="64"
+          height="64px"
+          width="64px"
           id="Icon"
         />
         <p class="q-ma-none font" v-text="items.Banner"></p>

@@ -1,14 +1,14 @@
 <template>
   <div id="InsuranceList">
-    <img
+    <q-img
       v-for="items in InsurancesList"
       v-show="!!InsurancesList"
       class="shadow-5 q-ma-sm"
       :src="items"
       :key="items"
-      height="68"
+      height="68px"
       alt="بیمه"
-      width="68"
+      width="68px"
       id="img"
     />
     <template v-for="items in 12" :key="items">
