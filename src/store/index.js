@@ -248,21 +248,36 @@ export default store(function () {
       },
       HandelInputInsurence(state, { Data, index }) {
         const insurancesInput = state.insurancesInput;
-
-        const StepOne = insurancesInput.filter((items) => items.Step === 1);
-        console.log(StepOne);
-        state.insurancesInput[index].Value = Data; //انتخاب کاربر
-        
-        // اینپوت مدل
+        const Brand = state.insurancesInput[index].Value;
+        const CarModels = state.CarModels;
+        const Step1 = insurancesInput.filter((items) => items.Step === 1);
+        const Step2 = insurancesInput.filter((items) => items.Step === 2);
+        const Step3 = insurancesInput.filter((items) => items.Step === 3);
+        ////////////////////////////////////////////////////////////////////
+        state.insurancesInput[index].Value = Data;
+        if (index === 0) {
+          if (Step1[0].Value) {
+            console.log(Step1[0].Value !== Data);
+            insurancesInput.forEach((items) => (items.Disable = false));
+          } else {
+            insurancesInput.forEach((items) => {
+              items.Disable = true;
+              items.Value = "";
+            });
+            Step1[0].Disable = false;
+            Step2[0].Disable = false;
+            Step3[0].Disable = false;
+          }
+        }
+        ///////////////////////////////////////////////////////
         if (index === 1) {
-          const Brand = state.insurancesInput[index].Value;
-          state.CarModels.filter((items) => {
+          CarModels.filter((items) => {
             if (items.Name === Brand) {
-              state.insurancesInput[2].Options = items.Models;
+              insurancesInput[2].Options = items.Models;
             }
           });
         }
-        // پایان
+        /////////////////////////////////////////////////////////
       },
     },
     actions: {
