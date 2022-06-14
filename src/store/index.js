@@ -248,6 +248,7 @@ export default store(function () {
       },
       HandelInputInsurence(state, { Data, index }) {
         const insurancesInput = state.insurancesInput;
+        const CarModels = state.CarModels;
         const Step1 = insurancesInput.filter((items) => items.Step === 1);
         const Step2 = insurancesInput.filter((items) => items.Step === 2);
         const Step3 = insurancesInput.filter((items) => items.Step === 3);
@@ -255,35 +256,40 @@ export default store(function () {
         if (index === 0) {
           if (Data) {
             insurancesInput.forEach((items) => (items.Disable = false));
-          }
-          if (Step1[0].Value !== Data) {
-            insurancesInput.forEach((items) => {
-              items.Value = "";
-            });
+            Step1[2].Disable = true;
+            if (Step1[0].Value !== Data) {
+              insurancesInput.forEach((items) => {
+                items.Value = "";
+              });
+            }
           } else {
             insurancesInput.forEach((items) => {
               items.Disable = true;
               items.Value = "";
             });
             Step1[0].Disable = false;
-            Step2[0].Disable = false;
-            Step3[0].Disable = false;
+          }
+        }
+        /////////////////////////////////////////////////////////
+        if (index === 1) {
+          if (Data) {
+            Step1[2].Disable = false;
+            if (Step1[1].Value !== Data) {
+              Step1[2].Value = "";
+            }
+            CarModels.filter((items) => {
+              if (items.Name === Data) {
+                Step1[2].Options = items.Models;
+              }
+            });
+          } else {
+            Step1[2].Value = "";
+            Step1[2].Disable = true;
           }
         }
         ////////////////////////////////////
         insurancesInput[index].Value = Data;
         ////////////////////////////////////
-
-        if (index === 1) {
-          const Brand = insurancesInput[index].Value;
-          const CarModels = state.CarModels;
-          CarModels.filter((items) => {
-            if (items.Name === Brand) {
-              Step1[2].Options = items.Models;
-            }
-          });
-        }
-        /////////////////////////////////////////////////////////
       },
     },
     actions: {
