@@ -64,8 +64,8 @@
                 @click="$refs.stepper.next()"
                 v-show="4 !== items.Step"
                 label="مرحله بعد"
-                color="primary"
                 class="shadow-3"
+                color="primary"
               />
               <q-btn
                 icon-right="fa-solid fa-caret-right"
