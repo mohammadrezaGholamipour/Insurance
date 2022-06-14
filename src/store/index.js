@@ -247,6 +247,7 @@ export default store(function () {
         state.InsuranceQuestion = data;
       },
       HandelInputInsurence(state, { Data, index }) {
+        ////////////////////////////////////////////////////////////////////
         const insurancesInput = state.insurancesInput;
         const CarModels = state.CarModels;
         const Step1 = insurancesInput.filter((items) => items.Step === 1);
@@ -268,9 +269,11 @@ export default store(function () {
               items.Value = "";
             });
             Step1[0].Disable = false;
+            Step2[0].Disable = false;
+            Step3[0].Disable = false;
           }
         }
-        /////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
         if (index === 1) {
           if (Data) {
             Step1[2].Disable = false;
@@ -287,9 +290,9 @@ export default store(function () {
             Step1[2].Disable = true;
           }
         }
-        ////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
         insurancesInput[index].Value = Data;
-        ////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
       },
     },
     actions: {
