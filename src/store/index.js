@@ -253,15 +253,16 @@ export default store(function () {
         const Step1 = insurancesInput.filter((items) => items.Step === 1);
         const Step2 = insurancesInput.filter((items) => items.Step === 2);
         const Step3 = insurancesInput.filter((items) => items.Step === 3);
-        ////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////
         if (index === 0) {
           if (Data) {
-            console.log("if");
             insurancesInput.forEach((items) => (items.Disable = false));
-          }
-          if (Step1[0].Value === Data) {
+            if (Step1[0].Value !== Data) {
+              insurancesInput.forEach((items) => {
+                items.Value = "";
+              });
+            }
           } else {
-            console.log("else");
             insurancesInput.forEach((items) => {
               items.Disable = true;
               items.Value = "";
@@ -271,10 +272,9 @@ export default store(function () {
             Step3[0].Disable = false;
           }
         }
+        ////////////////////////////////////
         insurancesInput[index].Value = Data;
         ////////////////////////////////////
-
-        ///////////////////////////////////////////////////////
         if (index === 1) {
           CarModels.filter((items) => {
             if (items.Name === Brand) {
