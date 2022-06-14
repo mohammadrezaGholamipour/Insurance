@@ -31,23 +31,23 @@
             <div id="Input">
               <q-select
                 @update:modelValue="HandelInputInsurence($event, index)"
+                dropdown-icon="fas fa-caret-square-down text-primary"
                 v-for="(items, index) in insurancesInput"
                 popup-content-class="text-white"
+                class="q-ma-sm cursor-pointer"
                 v-show="Step === items.Step"
                 :modelValue="items.Value"
                 :disable="items.Disable"
                 :options="items.Options"
-                style="width: 210px"
                 :label="items.Label"
+                style="width: 210px"
+                input-debounce="10"
                 @filter="filterFn"
                 :key="items.Step"
                 behavior="dialog"
                 color="purple-10"
-                class="q-ma-sm cursor-pointer"
                 use-input
                 clearable
-                input-debounce="10"
-                dropdown-icon="fas fa-caret-square-down text-primary"
               >
                 <template v-slot:no-option>
                   <q-item>
