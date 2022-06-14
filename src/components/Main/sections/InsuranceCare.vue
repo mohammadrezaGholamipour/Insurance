@@ -3,6 +3,8 @@
   <div id="Stepper" v-show="!!InsuranceStep & !!insurancesInput">
     <q-stepper
       v-show="InsuranceStep.length === 4"
+      transition-next="slide-right"
+      transition-prev="slide-left"
       header-class="Mobile"
       alternative-labels
       v-model="Step"
@@ -41,8 +43,11 @@
                 :key="items.Step"
                 behavior="dialog"
                 color="purple-10"
-                class="q-ma-sm"
+                class="q-ma-sm cursor-pointer"
                 use-input
+                clearable
+                input-debounce="10"
+                dropdown-icon="fas fa-caret-square-down text-primary"
               >
                 <template v-slot:no-option>
                   <q-item>
@@ -55,20 +60,20 @@
             </div>
             <div id="BtnSep" class="q-my-sm">
               <q-btn
-                @click="$refs.stepper.previous()"
                 icon="fa-solid fa-caret-left"
-                v-show="1 < items.Step"
-                label="مرحله قبل"
-                color="primary"
-                fab-mini
-              />
-              <q-btn
-                icon-right="fa-solid fa-caret-right"
                 @click="$refs.stepper.next()"
                 v-show="4 !== items.Step"
                 label="مرحله بعد"
                 color="primary"
-                fab-mini
+                class="shadow-3"
+              />
+              <q-btn
+                icon-right="fa-solid fa-caret-right"
+                @click="$refs.stepper.previous()"
+                v-show="1 < items.Step"
+                label="مرحله قبل"
+                color="primary"
+                flat
               />
             </div>
           </div>
@@ -234,5 +239,8 @@ export default {
   width: 714px;
   height: 343px;
   min-width: 270px;
+}
+.q-btn--rectangle {
+  border-radius: 23px !important;
 }
 </style>
