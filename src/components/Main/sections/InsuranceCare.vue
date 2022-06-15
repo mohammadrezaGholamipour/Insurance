@@ -240,7 +240,13 @@ export default {
   height: 343px;
   min-width: 270px;
 }
-.q-btn--rectangle {
-  border-radius: 23px !important;
+.q-field__focusable-action {
+    opacity: 0.6;
+    cursor: pointer;
+    outline: 0 !important;
+    border: 0;
+     color: rgb(255, 0, 0) !important; 
+    background: transparent;
+    padding: 0 5px; 
 }
 </style>
