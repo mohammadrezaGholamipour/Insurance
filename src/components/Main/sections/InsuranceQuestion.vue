@@ -1,7 +1,7 @@
 <template>
   <q-skeleton id="SkeltonInsuranceQuestion" v-if="!InsuranceQuestion" />
   <div
-    class="shadow-5 rounded-borders"
+    class="shadow-5 rounded-borders bg-warning-2"
     v-show="!!InsuranceQuestion"
     id="InsuranceQuestion"
   >

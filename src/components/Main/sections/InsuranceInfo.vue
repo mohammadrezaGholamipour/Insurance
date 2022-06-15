@@ -1,7 +1,7 @@
 <template>
   <q-skeleton id="SkeltonInsuranceInfo" v-if="!InsuranceInfo" />
   <div
-    class="rounded-borders shadow-5"
+    class="rounded-borders shadow-5 bg-info"
     v-show="!!InsuranceInfo"
     id="InsuranceInfo"
   >
@@ -36,7 +36,7 @@ export default {
 </script>
 <style scoped>
 #InsuranceInfo {
-  border: 1px solid rgba(0, 0, 0, 0.12);
+
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
