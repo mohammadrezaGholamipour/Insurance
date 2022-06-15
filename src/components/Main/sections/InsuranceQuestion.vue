@@ -1,20 +1,21 @@
 <template>
   <q-skeleton id="SkeltonInsuranceQuestion" v-if="!InsuranceQuestion" />
   <div
-    class="shadow-5 rounded-borders bg-warning-2"
+    class="shadow-5 rounded-borders "
     v-show="!!InsuranceQuestion"
     id="InsuranceQuestion"
   >
-    <q-list bordered class="rounded-borders">
+    <q-list class="rounded-borders" >
       <q-expansion-item
         v-for="items in InsuranceQuestion"
         :label="items.Question"
         header-class="List"
         expand-separator
         :key="items"
+   
       >
-        <q-card>
-          <q-card-section>
+        <q-card >
+          <q-card-section >
             {{ items.Answer }}
           </q-card-section>
         </q-card>
@@ -39,6 +40,7 @@ export default {
 </script>
 <style>
 #InsuranceQuestion {
+  background-color: rgb(250, 238, 71);
   max-width: 577px;
 }
 .List {

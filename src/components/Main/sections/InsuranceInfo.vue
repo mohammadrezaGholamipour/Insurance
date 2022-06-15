@@ -1,13 +1,18 @@
 <template>
   <q-skeleton id="SkeltonInsuranceInfo" v-if="!InsuranceInfo" />
   <div
-    class="rounded-borders shadow-5 bg-info"
+    class="rounded-borders shadow-5"
     v-show="!!InsuranceInfo"
     id="InsuranceInfo"
   >
     <template v-for="items in InsuranceInfo" :key="items">
       <div id="HeaderTabInfo">
-        <q-img :src="items.Image" :alt="items.Title" width="64px" height="64px" />
+        <q-img
+          :src="items.Image"
+          :alt="items.Title"
+          width="64px"
+          height="64px"
+        />
         <h5 class="q-ma-none q-pt-xs">{{ items.Title }}</h5>
       </div>
       <p>{{ items.Info }}</p>
@@ -36,7 +41,7 @@ export default {
 </script>
 <style scoped>
 #InsuranceInfo {
-
+  background-color: rgb(87, 200, 252);
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
