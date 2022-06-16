@@ -40,7 +40,7 @@ export default {
 </script>
 <style>
 #InsuranceQuestion {
-  background-color: rgb(250, 238, 71);
+  border: 2px solid orange;
   max-width: 577px;
 }
 .List {

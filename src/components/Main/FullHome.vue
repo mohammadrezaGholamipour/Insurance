@@ -30,7 +30,7 @@
     <hr class="Hr" />
     <!-- /////// -->
     <div id="Row3">
-      <p id="H4Text" class="shadow-5 q-pa-md">
+      <p id="H4Text" class="shadow-5 q-pa-md ">
         سوالات و اطلاعات بیشتر درمورد بیمه شخص ثالث
       </p>
       <InsuranceText />

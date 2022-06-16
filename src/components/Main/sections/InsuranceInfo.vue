@@ -41,7 +41,7 @@ export default {
 </script>
 <style scoped>
 #InsuranceInfo {
-  background-color: rgb(87, 200, 252);
+  border: 2px solid orange;
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
