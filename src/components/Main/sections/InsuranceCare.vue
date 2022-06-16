@@ -75,7 +75,7 @@
               />
             </div>
           </div>
-          <div id="RightStep" class="shadow-5 q-pa-xs q-ma-xs bg-dark">
+          <div id="RightStep" class="shadow-5 q-pa-xs q-ma-sm bg-dark">
             <q-img :src="items.Gif" width="230px" height="200px" alt="'گیف" />
           </div>
         </div>
@@ -170,7 +170,7 @@ export default {
 .on-left {
   margin: 0 !important;
 }
-@media screen and (max-width: 651px) {
+@media screen and (max-width: 687px) {
   .Mobile {
     display: none;
   }

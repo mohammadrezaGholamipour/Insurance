@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div id="InsuranceBanner">
     <q-banner
-    
       v-show="!!Banner"
       class="text-white q-py-xs shadow-5"
       v-for="items in Banner"
@@ -83,6 +82,11 @@ export default {
 @media screen and (max-width: 400px) {
   #skeletonBanner {
     width: 336px !important;
+  }
+}
+@media screen and (min-width: 1052px) {
+  #InsuranceBanner {
+    display: none;
   }
 }
 </style>

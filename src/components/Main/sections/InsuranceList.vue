@@ -3,7 +3,7 @@
     <q-img
       v-for="items in InsurancesList"
       v-show="!!InsurancesList"
-      class="shadow-5 q-ma-sm"
+      class="shadow-5"
       :src="items"
       :key="items"
       height="68px"
@@ -45,7 +45,7 @@ export default {
 
 <style scoped>
 #InsuranceList {
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   display: flex;
@@ -55,5 +55,8 @@ export default {
   border: 2px solid orange;
   background-color: white;
   border-radius: 17px;
+  margin: 8px 0;
+  
+
 }
 </style>

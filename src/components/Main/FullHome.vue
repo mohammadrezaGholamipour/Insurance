@@ -1,38 +1,20 @@
 <template>
   <div id="Main">
     <!-- /////// -->
-    <div id="Row2">
+    <div id="Row1">
       <InsuranceCare />
-      <q-skeleton
-        v-if="!InsuranceCarGif"
-        height="344px"
-        width="526px"
-        alt="بیمه"
-      />
-      <!-- <q-img
-        v-show="!!InsuranceCarGif"
-        :src="InsuranceCarGif"
-        id="InsuranceImage"
-        height="344px"
-        width="526px"
-        alt="بیمه"
-      /> -->
+      <InsuranceBanner />
       <InsuranceList />
     </div>
 
     <!-- /////// -->
     <hr class="Hr" />
     <!-- /////// -->
-    <div id="Row1">
-      <InsuranceBanner />
-
-      <InsuranceGifCar />
-    </div>
+    <div id="Row2"></div>
     <!-- /////// -->
     <hr class="Hr" />
     <!-- /////// -->
     <div id="Row3">
-     
       <InsuranceText />
     </div>
     <!-- /////// -->
@@ -43,7 +25,6 @@
 
 <script>
 import InsuranceBanner from "./sections/InsuranceBanner.vue";
-import InsuranceGifCar from "./sections/InsuranceGifCar.vue";
 import InsuranceCare from "./sections/InsuranceCare.vue";
 import InsuranceList from "./sections/InsuranceList.vue";
 import InsuranceText from "./sections/InsuranceText.vue";
@@ -54,19 +35,9 @@ export default {
   name: "FullHome",
   components: {
     InsuranceBanner,
-    InsuranceGifCar,
     InsuranceCare,
     InsuranceText,
     InsuranceList,
-  },
-  setup() {
-    const Store = useStore();
-    const InsuranceCarGif = computed(() => {
-      return Store.getters.StateGetter("InsuranceCarGif");
-    });
-    return {
-      InsuranceCarGif,
-    };
   },
 };
 </script>
@@ -79,25 +50,27 @@ export default {
   width: 100%;
 }
 #Row1 {
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: row-reverse;
-  align-items: center;
   flex-wrap: wrap;
   display: flex;
+  align-items: center;
   width: 100%;
 }
 #Row2 {
-  justify-content: space-evenly;
+  background-color: white;
+  justify-content: space-around;
   flex-direction: row-reverse;
   align-items: center;
   flex-wrap: wrap;
   display: flex;
-  padding: 11px;
   width: 100%;
 }
+
 #Row3 {
   justify-content: space-around;
   flex-direction: row-reverse;
+  align-items: center;
   flex-wrap: wrap;
   display: flex;
   width: 100%;
@@ -105,9 +78,7 @@ export default {
 .Hr {
   border-top: 4px solid rgb(88, 161, 255);
   border-radius: 5px;
-  margin-top: 0;
+  margin: 0;
   width: 100%;
 }
-
-
 </style>

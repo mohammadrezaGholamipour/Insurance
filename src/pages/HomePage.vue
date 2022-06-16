@@ -11,11 +11,10 @@ export default {
   components: { FullHome },
   setup() {
     const Store = useStore();
-    Store.dispatch("SupabaseGif");
-    Store.dispatch("SupabaseBanner");
     Store.dispatch("SupabaseInsurancesList");
     Store.dispatch("SupabaseInsuranceStep");
-    Store.dispatch("SupabaseInsuranceCarGif");
+    Store.dispatch("SupabaseBanner");
+
     Store.dispatch("SupabaseInsuranceInfo");
     Store.dispatch("SupabaseInsuranceQuestion");
   },
