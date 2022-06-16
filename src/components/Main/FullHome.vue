@@ -30,6 +30,9 @@
     <hr class="Hr" />
     <!-- /////// -->
     <div id="Row3">
+      <p id="H4Text" class="shadow-5 q-pa-md">
+        سوالات و اطلاعات بیشتر درمورد بیمه شخص ثالث
+      </p>
       <InsuranceText />
     </div>
     <!-- /////// -->
@@ -102,5 +105,17 @@ export default {
   border-top: 4px solid rgb(88, 161, 255);
   border-radius: 5px;
   width: 100%;
+}
+#H4Text {
+  border-radius: 20px;
+  border: 2px solid orange;
+  font-size: 22pt;
+  text-align: center;
+  margin: 15px 0 20px;
+}
+@media screen and (max-width: 572px) {
+  #H4Text {
+    display: none;
+  }
 }
 </style>
