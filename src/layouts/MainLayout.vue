@@ -1,5 +1,5 @@
 <template>
-  <FirstLoading v-if="Loading" class="non-selectablez" />
+  <FirstLoading v-if="Loading" class="non-selectable" />
   <q-layout v-show="!Loading" view="hHh lpr fFf" class="layout non-selectable">
     <!-- Header -->
     <FullHeader>
