@@ -1,7 +1,7 @@
 <template>
   <div id="Text">
-    <InsuranceQuestion />
     <InsuranceInfo />
+    <InsuranceQuestion />
   </div>
 </template>
 

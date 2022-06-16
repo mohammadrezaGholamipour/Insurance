@@ -6,11 +6,9 @@
       transition-next="slide-right"
       transition-prev="slide-left"
       header-class="Mobile"
-      alternative-labels
       v-model="Step"
       ref="stepper"
       animated
-      flat
     >
       <q-step
         v-for="items in InsuranceStep"
@@ -77,7 +75,7 @@
               />
             </div>
           </div>
-          <div id="RightStep" class="shadow-5 q-pa-sm q-ma-sm">
+          <div id="RightStep" class="shadow-5 q-pa-xs q-ma-xs bg-dark">
             <q-img :src="items.Gif" width="230px" height="200px" alt="'گیف" />
           </div>
         </div>
@@ -182,6 +180,7 @@ export default {
     width: 100%;
   }
 }
+
 .q-dialog__inner {
   max-width: 300px !important;
   padding: 0 !important;
@@ -237,16 +236,32 @@ export default {
 }
 #SkeltoninsuranceCar {
   width: 714px;
-  height: 343px;
-  min-width: 270px;
+  height: 272px;
+  min-width: 272px;
 }
 .q-field__focusable-action {
-    opacity: 0.6;
-    cursor: pointer;
-    outline: 0 !important;
-    border: 0;
-     color: rgb(255, 0, 0) !important; 
-    background: transparent;
-    padding: 0 5px; 
+  opacity: 0.6;
+  cursor: pointer;
+  outline: 0 !important;
+  border: 0;
+  color: rgb(255, 0, 0) !important;
+  background: transparent;
+  padding: 0 5px;
+}
+.q-stepper {
+  background: none !important;
+  box-shadow: none !important;
+}
+.q-stepper__header--border {
+  border-bottom: none !important;
+}
+.q-stepper__header--standard-labels .q-stepper__tab {
+  min-height: 0 !important;
+}
+#RightStep img{
+  border-radius: 20px;
+}
+#RightStep {
+  border-radius: 10%;
 }
 </style>

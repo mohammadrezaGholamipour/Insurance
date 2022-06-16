@@ -133,14 +133,12 @@ export default {
   }
 }
 .layout {
-  background-image: url(../assets/Image/back-base.png);
+  background-color: #e4e4e4;
 }
 .Page {
-  background-color: white;
-  border-radius: 30px;
+  background-image: url(../assets/Image/back-base.png);
   max-width: 1338px;
   overflow: hidden;
-  margin-top: 1vw;
   padding: 5px;
 }
 .Loading {

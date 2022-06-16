@@ -1,21 +1,23 @@
 <template>
   <q-skeleton id="SkeltonInsuranceQuestion" v-if="!InsuranceQuestion" />
   <div
-    class="shadow-5 rounded-borders "
+    class="shadow-5 rounded-borders"
     v-show="!!InsuranceQuestion"
     id="InsuranceQuestion"
   >
-    <q-list class="rounded-borders" >
+    <p id="H4Text" class="shadow-5 q-pa-md">
+      سوالات و اطلاعات بیشتر درمورد بیمه شخص ثالث
+    </p>
+    <q-list class="rounded-borders">
       <q-expansion-item
         v-for="items in InsuranceQuestion"
         :label="items.Question"
         header-class="List"
         expand-separator
         :key="items"
-   
       >
-        <q-card >
-          <q-card-section >
+        <q-card>
+          <q-card-section>
             {{ items.Answer }}
           </q-card-section>
         </q-card>
@@ -65,5 +67,17 @@ export default {
   width: 576.41px;
   height: 1010px;
   min-width: 270px;
+}
+#H4Text {
+  border-bottom: 2px solid orange;
+ 
+ 
+  text-align: center;
+  font-size: 22pt;
+}
+@media screen and (max-width: 572px) {
+  #H4Text {
+    display: none;
+  }
 }
 </style>

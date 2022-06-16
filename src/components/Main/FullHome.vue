@@ -1,14 +1,6 @@
 <template>
   <div id="Main">
     <!-- /////// -->
-    <div id="Row1">
-      <InsuranceBanner />
-      <InsuranceList />
-      <InsuranceGifCar />
-    </div>
-    <!-- /////// -->
-    <hr class="Hr" />
-    <!-- /////// -->
     <div id="Row2">
       <InsuranceCare />
       <q-skeleton
@@ -17,22 +9,30 @@
         width="526px"
         alt="بیمه"
       />
-      <q-img
+      <!-- <q-img
         v-show="!!InsuranceCarGif"
         :src="InsuranceCarGif"
         id="InsuranceImage"
         height="344px"
         width="526px"
         alt="بیمه"
-      />
+      /> -->
+      <InsuranceList />
+    </div>
+
+    <!-- /////// -->
+    <hr class="Hr" />
+    <!-- /////// -->
+    <div id="Row1">
+      <InsuranceBanner />
+
+      <InsuranceGifCar />
     </div>
     <!-- /////// -->
     <hr class="Hr" />
     <!-- /////// -->
     <div id="Row3">
-      <p id="H4Text" class="shadow-5 q-pa-md ">
-        سوالات و اطلاعات بیشتر درمورد بیمه شخص ثالث
-      </p>
+     
       <InsuranceText />
     </div>
     <!-- /////// -->
@@ -87,11 +87,12 @@ export default {
   width: 100%;
 }
 #Row2 {
+  justify-content: space-evenly;
   flex-direction: row-reverse;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   display: flex;
+  padding: 11px;
   width: 100%;
 }
 #Row3 {
@@ -104,18 +105,9 @@ export default {
 .Hr {
   border-top: 4px solid rgb(88, 161, 255);
   border-radius: 5px;
+  margin-top: 0;
   width: 100%;
 }
-#H4Text {
-  border: 2px solid orange;
-  margin: 15px 0 20px;
-  border-radius: 20px;
-  text-align: center;
-  font-size: 22pt;
-}
-@media screen and (max-width: 572px) {
-  #H4Text {
-    display: none;
-  }
-}
+
+
 </style>

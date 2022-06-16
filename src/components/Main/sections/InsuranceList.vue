@@ -53,9 +53,7 @@ export default {
 }
 #img {
   border: 2px solid orange;
+  background-color: white;
   border-radius: 17px;
-}
-#InsuranceItems p {
-  margin: 0;
 }
 </style>
