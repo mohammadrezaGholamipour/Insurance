@@ -10,8 +10,8 @@
         <q-img
           :src="items.Image"
           :alt="items.Title"
-          width="64px"
           height="64px"
+          width="64px"
         />
         <h5 class="q-ma-none q-pt-xs">{{ items.Title }}</h5>
       </div>

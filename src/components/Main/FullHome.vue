@@ -107,11 +107,11 @@ export default {
   width: 100%;
 }
 #H4Text {
-  border-radius: 20px;
   border: 2px solid orange;
-  font-size: 22pt;
-  text-align: center;
   margin: 15px 0 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 22pt;
 }
 @media screen and (max-width: 572px) {
   #H4Text {
