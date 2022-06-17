@@ -7,7 +7,11 @@
       <InsuranceList />
     </div>
     <!-- /////// -->
-    <div id="Row2"></div>
+    <hr class="Hr" />
+    <!-- /////// -->
+    <div id="Row2">
+      <InsuranceCarousel />
+    </div>
     <!-- /////// -->
     <hr class="Hr" />
     <!-- /////// -->
@@ -23,6 +27,7 @@ import InsuranceBanner from "./sections/InsuranceBanner.vue";
 import InsuranceCare from "./sections/InsuranceCare.vue";
 import InsuranceList from "./sections/InsuranceList.vue";
 import InsuranceText from "./sections/InsuranceText.vue";
+import InsuranceCarousel from "./sections/InsuranceCarousel.vue";
 
 export default {
   name: "FullHome",
@@ -31,6 +36,7 @@ export default {
     InsuranceCare,
     InsuranceText,
     InsuranceList,
+    InsuranceCarousel,
   },
 };
 </script>
@@ -51,7 +57,7 @@ export default {
   width: 100%;
 }
 #Row2 {
-  background-color: white;
+  background-color: #f2f2f2;
   justify-content: space-around;
   flex-direction: row-reverse;
   align-items: center;

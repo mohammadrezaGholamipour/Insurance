@@ -133,7 +133,7 @@ export default {
   }
 }
 .layout {
-  background-color: #e4e4e4;
+  background-color: #f2f2f2;
 }
 .Page {
   background-image: url(../assets/Image/back-base.png);
