@@ -4,6 +4,7 @@
       <template v-for="(items, index) in Menu" :key="index">
         <q-separator class="ListLine" />
         <q-item
+          :disable="items.Label === 'خانه' ? false : true"
           active-class="text-white"
           class="ListItems"
           :to="items.Link"

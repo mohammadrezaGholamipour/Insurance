@@ -9,6 +9,7 @@
       :icon="items.Icon"
       :to="items.Link"
       :key="index"
+      :disable="items.Label === 'خانه' ? false : true"
       exact
     />
   </q-tabs>
