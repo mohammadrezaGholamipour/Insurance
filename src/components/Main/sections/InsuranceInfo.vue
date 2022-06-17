@@ -71,8 +71,9 @@ export default {
   padding: 0;
 }
 #SkeltonInsuranceInfo {
-  width: 600px;
-  height: 1012.16px;
-  min-width: 270px;
+  border: 2px solid orange;
+  height: 1010.7px;
+  min-width: 266px;
+  width: 596px;
 }
 </style>

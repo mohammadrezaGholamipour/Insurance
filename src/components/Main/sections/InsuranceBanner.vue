@@ -19,7 +19,7 @@
         <p class="q-ma-none font" v-text="items.Banner"></p>
       </div>
     </q-banner>
-    <div v-if="!Banner">
+    <div id="skeletonBannerParent" v-if="!Banner">
       <q-skeleton
         id="skeletonBanner"
         class="Banner1"
@@ -54,7 +54,7 @@ export default {
     const Banner = computed(() => {
       return Store.getters.StateGetter("Banner");
     });
-    return { Store, Banner};
+    return { Store, Banner };
   },
 };
 </script>
@@ -74,6 +74,10 @@ export default {
   display: flex;
   padding: 0;
 }
+#skeletonBannerParent {
+  border-radius: 30px;
+  border: 2px solid orange;
+}
 .font {
   text-align: center;
   font-size: 12pt;
@@ -84,6 +88,11 @@ export default {
   }
 }
 @media screen and (min-width: 1052px) {
+  #InsuranceBanner {
+    display: none;
+  }
+}
+@media screen and (max-width: 810px) {
   #InsuranceBanner {
     display: none;
   }

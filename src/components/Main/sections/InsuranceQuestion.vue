@@ -62,16 +62,18 @@ export default {
   #InsuranceQuestion {
     margin-top: 10px;
   }
+  #SkeltonInsuranceQuestion {
+    margin-top: 10px;
+  }
 }
 #SkeltonInsuranceQuestion {
-  width: 576.41px;
-  height: 1010px;
-  min-width: 270px;
+  border: 2px solid orange;
+  width: 572.41px;
+  height: 1006px;
+  min-width: 266px;
 }
 #H4Text {
   border-bottom: 2px solid orange;
- 
- 
   text-align: center;
   font-size: 22pt;
 }

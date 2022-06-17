@@ -1,6 +1,5 @@
 <template>
-  <q-skeleton v-if="!Menu" width="650px" bordered />
-
+  <q-skeleton v-if="!Menu" width="650.334px" height="48px" bordered />
   <q-tabs v-show="!!Menu" inline-label narrow-indicator>
     <q-route-tab
       v-for="(items, index) in Menu"

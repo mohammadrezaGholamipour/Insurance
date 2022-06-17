@@ -241,9 +241,10 @@ export default {
   text-align: right !important;
 }
 #SkeltoninsuranceCar {
-  width: 706px;
-  height: 274px;
-  min-width: 272px;
+  border: 2px solid orange;
+  width: 702px;
+  height: 270px;
+  min-width: 268px;
 }
 .q-field__focusable-action {
   opacity: 0.6;
