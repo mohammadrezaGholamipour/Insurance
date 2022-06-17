@@ -221,7 +221,7 @@ export default {
   top: 18px;
   max-width: 100%;
   text-align: right;
-  color: rgba(0, 0, 0, 0.6) !important;
+  color: black !important;
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
@@ -241,8 +241,8 @@ export default {
   text-align: right !important;
 }
 #SkeltoninsuranceCar {
-  width: 714px;
-  height: 272px;
+  width: 706px;
+  height: 274px;
   min-width: 272px;
 }
 .q-field__focusable-action {

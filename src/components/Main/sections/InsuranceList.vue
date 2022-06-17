@@ -13,11 +13,11 @@
     />
     <template v-for="items in 12" :key="items">
       <q-skeleton
-        class="shadow-5 q-ma-sm"
+        class="shadow-5"
         v-if="!InsurancesList"
         height="68px"
         width="68px"
-        id="img"
+        id="SkeltonImg"
       />
     </template>
   </div>
@@ -56,7 +56,10 @@ export default {
   background-color: white;
   border-radius: 17px;
   margin: 8px 0;
-  
-
+}
+#SkeltonImg {
+  border: 2px solid orange;
+  border-radius: 17px;
+  margin: 8px 0;
 }
 </style>
