@@ -2,6 +2,7 @@
   <q-skeleton v-if="!Menu" width="650.334px" height="48px" bordered />
   <q-tabs v-show="!!Menu" inline-label narrow-indicator>
     <q-route-tab
+      :disable="items.Label === 'خانه' ? false : true"
       v-for="(items, index) in Menu"
       class="text-white q-mx-xs"
       :label="items.Label"
@@ -9,7 +10,6 @@
       :icon="items.Icon"
       :to="items.Link"
       :key="index"
-      :disable="items.Label === 'خانه' ? false : true"
       exact
     />
   </q-tabs>

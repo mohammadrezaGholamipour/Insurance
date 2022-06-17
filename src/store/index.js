@@ -11,9 +11,7 @@ export default store(function () {
       Accounts: "",
       Banner: "",
       InsurancesList: "",
-      Gif: "",
       InsuranceStep: "",
-      InsuranceCarGif: "",
       InsuranceInfo: "",
       InsuranceQuestion: "",
       insurancesInput: [
@@ -228,12 +226,6 @@ export default store(function () {
       Banner(state, data) {
         state.Banner = data;
       },
-      Gif(state, data) {
-        state.Gif = URL.createObjectURL(data);
-      },
-      InsuranceCarGif(state, data) {
-        state.InsuranceCarGif = URL.createObjectURL(data);
-      },
       InsurancesList(state, data) {
         state.InsurancesList = data;
       },
@@ -347,17 +339,6 @@ export default store(function () {
           console.log("عکس های انواع بیمه دریافت نشد");
         }
       },
-      async SupabaseGif({ commit }) {
-        try {
-          const { data } = await supabase.storage
-            .from("public")
-            .download("gif/animate-care6.gif");
-          commit("Gif", data);
-        } catch (error) {
-          console.log(error.message);
-          console.log("گیف دریافت نشد");
-        }
-      },
       async SupabaseInsuranceStep({ commit }) {
         try {
           const { data } = await supabase.from("InsuranceCar").select("*");
@@ -365,17 +346,6 @@ export default store(function () {
         } catch (error) {
           console.log(error.message);
           console.log("اطلاعات،فرم دریافت نشد");
-        }
-      },
-      async SupabaseInsuranceCarGif({ commit }) {
-        try {
-          const { data } = await supabase.storage
-            .from("public")
-            .download("insurances//Bimeh/car-insurance.jpg");
-          commit("InsuranceCarGif", data);
-        } catch (error) {
-          console.log(error.message);
-          console.log("عکس دریافت نشد");
         }
       },
       async SupabaseInsuranceInfo({ commit }) {

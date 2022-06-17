@@ -20,8 +20,8 @@ export default {
 <style scoped>
 #Text {
   justify-content: space-evenly;
-  align-items: flex-start;
   flex-direction: row-reverse;
+  align-items: flex-start;
   flex-wrap: wrap;
   display: flex;
   width: 100%;
