@@ -6,9 +6,6 @@
       <InsuranceBanner />
       <InsuranceList />
     </div>
-
-    <!-- /////// -->
-    <hr class="Hr" />
     <!-- /////// -->
     <div id="Row2"></div>
     <!-- /////// -->
@@ -18,8 +15,6 @@
       <InsuranceText />
     </div>
     <!-- /////// -->
-    <hr class="Hr" />
-    <!-- /////// -->
   </div>
 </template>
 
@@ -28,8 +23,6 @@ import InsuranceBanner from "./sections/InsuranceBanner.vue";
 import InsuranceCare from "./sections/InsuranceCare.vue";
 import InsuranceList from "./sections/InsuranceList.vue";
 import InsuranceText from "./sections/InsuranceText.vue";
-import { computed } from "@vue/runtime-core";
-import { useStore } from "vuex";
 
 export default {
   name: "FullHome",
@@ -78,7 +71,6 @@ export default {
 .Hr {
   border-top: 4px solid rgb(88, 161, 255);
   border-radius: 5px;
-  margin: 0;
   width: 100%;
 }
 </style>

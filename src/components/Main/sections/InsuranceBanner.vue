@@ -50,12 +50,11 @@ export default {
   name: "InsuranceBanner",
   components: {},
   setup() {
-    const test = ref("salam");
     const Store = useStore();
     const Banner = computed(() => {
       return Store.getters.StateGetter("Banner");
     });
-    return { Store, Banner, test };
+    return { Store, Banner};
   },
 };
 </script>

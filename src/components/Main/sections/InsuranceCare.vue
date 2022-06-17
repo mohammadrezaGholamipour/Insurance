@@ -46,6 +46,7 @@
                 color="purple-10"
                 use-input
                 clearable
+                autofocus
               >
                 <template v-slot:no-option>
                   <q-item>
@@ -136,6 +137,10 @@ export default {
 };
 </script>
 <style>
+#Stepper {
+  padding-top: 10px;
+}
+
 #MainStepper {
   justify-content: center;
   flex-wrap: wrap-reverse;
@@ -178,6 +183,7 @@ export default {
 @media screen and (max-width: 848px) {
   #Stepper {
     width: 100%;
+    padding-top: 10px;
   }
 }
 
@@ -258,7 +264,7 @@ export default {
 .q-stepper__header--standard-labels .q-stepper__tab {
   min-height: 0 !important;
 }
-#RightStep img{
+#RightStep img {
   border-radius: 20px;
 }
 #RightStep {

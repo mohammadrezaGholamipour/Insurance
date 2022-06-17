@@ -1,6 +1,6 @@
 <template>
   <!-- Header -->
-  <div id="Header">
+  <div id="Header" class="shadow-5">
     <!-- MenuDesktop -->
     <div id="Right">
       <MenuHeader :Menu="Menu" />
