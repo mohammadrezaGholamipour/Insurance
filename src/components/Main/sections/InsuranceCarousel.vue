@@ -9,8 +9,21 @@
     arrows
   >
     <q-carousel-slide name="first">
-      <div class="absolute-center">
-        <p>سلام</p>
+      <div id="CarouselMain">
+        <div class="q-pa-xs bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Arman.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-xs bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Asmari.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
       </div>
     </q-carousel-slide>
   </q-carousel>
@@ -29,6 +42,14 @@ export default {
 </script>
 
 <style scoped>
+#CarouselMain {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  height: 100%;
+}
 .q-carousel {
   background: none !important;
   height: 250px;
