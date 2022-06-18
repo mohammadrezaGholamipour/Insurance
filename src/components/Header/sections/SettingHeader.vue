@@ -35,8 +35,8 @@ export default {
   display: flex;
 }
 .Btn {
-  padding: 5px;
   border: 2px solid orange;
+  padding: 5px;
 }
 
 @media only screen and (max-width: 740px) {

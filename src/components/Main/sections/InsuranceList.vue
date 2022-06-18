@@ -4,20 +4,20 @@
       v-for="items in InsuranceList"
       v-show="!!InsuranceList"
       class="shadow-5"
+      height="68px"
+      width="68px"
       :src="items"
       :key="items"
-      height="68px"
       alt="بیمه"
-      width="68px"
       id="img"
     />
     <template v-for="items in 12" :key="items">
       <q-skeleton
-        class="shadow-5"
         v-if="!InsuranceList"
+        class="shadow-5"
+        id="SkeltonImg"
         height="68px"
         width="68px"
-        id="SkeltonImg"
       />
     </template>
   </div>

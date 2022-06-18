@@ -10,7 +10,9 @@
       <TarikhHeader :TarikhOption="TarikhOption" />
       <SocialHeader :InsuranceSocial="InsuranceSocial" />
       <SearchHeader />
-      <SettingHeader :InsuranceAccounts="InsuranceAccounts"><slot></slot></SettingHeader>
+      <SettingHeader :InsuranceAccounts="InsuranceAccounts">
+        <slot></slot>
+      </SettingHeader>
     </div>
   </div>
   <!-- Finish header -->
@@ -28,11 +30,11 @@ import { useStore } from "vuex";
 export default {
   name: "FullHeader",
   components: {
-    MenuHeader,
-    SearchHeader,
     SettingHeader,
+    SearchHeader,
     SocialHeader,
     TarikhHeader,
+    MenuHeader,
   },
 
   setup() {
@@ -49,7 +51,13 @@ export default {
     const TarikhOption = computed(() => {
       return store.state.TarikhOption;
     });
-    return { store, InsuranceMenu, InsuranceSocial, InsuranceAccounts, TarikhOption };
+    return {
+      InsuranceAccounts,
+      InsuranceSocial,
+      InsuranceMenu,
+      TarikhOption,
+      store,
+    };
   },
 };
 </script>

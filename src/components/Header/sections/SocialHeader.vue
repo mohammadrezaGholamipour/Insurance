@@ -2,9 +2,9 @@
   <q-skeleton v-if="!InsuranceSocial" bordered type="circle" />
   <q-fab
     active-icon="keyboard_arrow_up"
+    v-show="!!InsuranceSocial"
     icon="keyboard_arrow_down"
     text-color="white"
-    v-show="!!InsuranceSocial"
     direction="down"
     padding="none"
     id="Social"
