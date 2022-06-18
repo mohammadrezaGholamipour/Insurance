@@ -14,7 +14,7 @@ export default store(function () {
       InsuranceStep: "",
       InsuranceInfo: "",
       InsuranceQuestion: "",
-      InsuranceCompany: "",
+      InsuranceCompany: [[], []],
       insurancesInput: [
         {
           Step: 1,
@@ -234,7 +234,13 @@ export default store(function () {
         state.InsuranceStep = data;
       },
       InsuranceCompany(state, data) {
-        state.InsuranceCompany = data;
+        data.forEach((items) => {
+          if (items.Name === "SlideOne") {
+            state.InsuranceCompany[0].push(items);
+          } else {
+            state.InsuranceCompany[1].push(items);
+          }
+        });
       },
       InsuranceInfo(state, data) {
         state.InsuranceInfo = data;

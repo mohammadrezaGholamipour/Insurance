@@ -5,6 +5,7 @@
     control-color="primary"
     id="InsuranceCarousel"
     v-model="Slide"
+    height="200px"
     animated
     infinite
     arrows
@@ -12,11 +13,26 @@
     <q-carousel-slide name="SlideOne">
       <div id="CarouselMain">
         <div
-          v-for="items in InsuranceCompany"
-          :key="items.id"
           class="q-pa-md bg-white shadow-5 radius"
+          v-for="items in InsuranceCompany[0]"
+          :key="items.id"
         >
-          <q-img :src="items.Src" width="100px" height="100px" />
+          <a :href="items.Link" target="_blank"
+            ><q-img :src="items.Src" width="100px" height="100px"
+          /></a>
+        </div>
+      </div>
+    </q-carousel-slide>
+    <q-carousel-slide name="SlideTow">
+      <div id="CarouselMain">
+        <div
+          class="q-pa-md bg-white shadow-5 radius"
+          v-for="items in InsuranceCompany[1]"
+          :key="items.id"
+        >
+          <a :href="items.Link" target="_blank"
+            ><q-img :src="items.Src" width="100px" height="100px"
+          /></a>
         </div>
       </div>
     </q-carousel-slide>
@@ -24,9 +40,10 @@
 </template>
 
 <script>
+import { computed } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { useStore } from "vuex";
-import { computed } from "@vue/runtime-core";
+
 export default {
   setup() {
     const Slide = ref("SlideOne");
@@ -34,12 +51,9 @@ export default {
     const InsuranceCompany = computed(() => {
       return Store.getters.StateGetter("InsuranceCompany");
     });
-    setTimeout(() => {
-      console.log(InsuranceCompany);
-    }, 5000);
     return {
-      Slide,
       InsuranceCompany,
+      Slide,
     };
   },
 };
