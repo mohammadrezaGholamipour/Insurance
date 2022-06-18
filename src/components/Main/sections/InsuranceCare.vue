@@ -76,7 +76,7 @@
               />
             </div>
           </div>
-          <div id="RightStep" class="shadow-5 q-pa-xs q-ma-sm bg-dark">
+          <div id="RightStep" class="shadow-5 q-pa-xs q-ma-sm">
             <q-img :src="items.Gif" width="230px" height="200px" alt="'گیف" />
           </div>
         </div>

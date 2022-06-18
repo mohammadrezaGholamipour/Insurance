@@ -14,6 +14,7 @@ export default store(function () {
       InsuranceStep: "",
       InsuranceInfo: "",
       InsuranceQuestion: "",
+      InsuranceCompany: "",
       insurancesInput: [
         {
           Step: 1,
@@ -232,6 +233,9 @@ export default store(function () {
       InsuranceStep(state, data) {
         state.InsuranceStep = data;
       },
+      InsuranceCompany(state, data) {
+        state.InsuranceCompany = data;
+      },
       InsuranceInfo(state, data) {
         state.InsuranceInfo = data;
       },
@@ -346,6 +350,15 @@ export default store(function () {
         } catch (error) {
           console.log(error.message);
           console.log("اطلاعات،فرم دریافت نشد");
+        }
+      },
+      async SupabaseInsuranceCompany({ commit }) {
+        try {
+          const { data } = await supabase.from("InsuranceCompany").select("*");
+          commit("InsuranceCompany", data);
+        } catch (error) {
+          console.log(error.message);
+          console.log("اطلاعات،شرکت های بیمه دریافت نشد");
         }
       },
       async SupabaseInsuranceInfo({ commit }) {

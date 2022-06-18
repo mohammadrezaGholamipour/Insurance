@@ -10,7 +10,7 @@
     <hr class="Hr" />
     <!-- /////// -->
     <div id="Row2">
-      <InsuranceCarousel />
+      <InsuranceCompany />
     </div>
     <!-- /////// -->
     <hr id="HrInsuranceCarousel" class="Hr" />
@@ -27,7 +27,7 @@ import InsuranceBanner from "./sections/InsuranceBanner.vue";
 import InsuranceCare from "./sections/InsuranceCare.vue";
 import InsuranceList from "./sections/InsuranceList.vue";
 import InsuranceText from "./sections/InsuranceText.vue";
-import InsuranceCarousel from "./sections/InsuranceCarousel.vue";
+import InsuranceCompany from "./sections/InsuranceCompany.vue";
 
 export default {
   name: "FullHome",
@@ -36,7 +36,7 @@ export default {
     InsuranceCare,
     InsuranceText,
     InsuranceList,
-    InsuranceCarousel,
+    InsuranceCompany,
   },
 };
 </script>
