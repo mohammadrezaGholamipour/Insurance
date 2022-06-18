@@ -234,12 +234,16 @@ export default store(function () {
         state.InsuranceStep = data;
       },
       InsuranceCompany(state, data) {
+        const SlideOne = [];
+        const SlideTow = [];
         data.forEach((items) => {
           if (items.Name === "SlideOne") {
-            state.InsuranceCompany[0].push(items);
+            SlideOne.push(items);
           } else {
-            state.InsuranceCompany[1].push(items);
+            SlideTow.push(items);
           }
+          state.InsuranceCompany[0] = SlideOne;
+          state.InsuranceCompany[1] = SlideTow;
         });
       },
       InsuranceInfo(state, data) {
