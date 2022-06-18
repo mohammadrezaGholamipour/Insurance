@@ -6,6 +6,7 @@
     id="InsuranceCarousel"
     v-model="Slide"
     height="200px"
+    autoplay="1"
     animated
     infinite
     arrows
@@ -88,5 +89,8 @@ export default {
 .radius {
   border: 2px solid orange;
   border-radius: 30px;
+}
+.radius:hover {
+  box-shadow: rgb(241, 137, 137) 1px 5px 10px 1px;
 }
 </style>
