@@ -8,16 +8,76 @@
     infinite
     arrows
   >
-    <q-carousel-slide name="first">
+    <q-carousel-slide name="1">
       <div id="CarouselMain">
-        <div class="q-pa-xs bg-white shadow-5 rounded-borders">
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
           <q-img
             src="../../../assets/Image/Arman.png"
             width="100px"
             height="100px"
           />
         </div>
-        <div class="q-pa-xs bg-white shadow-5 rounded-borders">
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Day.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Alborz.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Iran.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Ma.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+      </div>
+    </q-carousel-slide>
+    <q-carousel-slide name="2">
+      <div id="CarouselMain">
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Mellat.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Novin.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/Moallem.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
+          <q-img
+            src="../../../assets/Image/karafarin.png"
+            width="100px"
+            height="100px"
+          />
+        </div>
+        <div class="q-pa-md bg-white shadow-5 rounded-borders">
           <q-img
             src="../../../assets/Image/Asmari.png"
             width="100px"
@@ -33,7 +93,7 @@
 import { ref } from "@vue/reactivity";
 export default {
   setup() {
-    const Slide = ref("first");
+    const Slide = ref("1");
     return {
       Slide,
     };
