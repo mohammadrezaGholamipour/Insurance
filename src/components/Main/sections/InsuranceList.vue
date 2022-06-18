@@ -1,8 +1,8 @@
 <template>
   <div id="InsuranceList">
     <q-img
-      v-for="items in InsurancesList"
-      v-show="!!InsurancesList"
+      v-for="items in InsuranceList"
+      v-show="!!InsuranceList"
       class="shadow-5"
       :src="items"
       :key="items"
@@ -14,7 +14,7 @@
     <template v-for="items in 12" :key="items">
       <q-skeleton
         class="shadow-5"
-        v-if="!InsurancesList"
+        v-if="!InsuranceList"
         height="68px"
         width="68px"
         id="SkeltonImg"
@@ -31,13 +31,13 @@ export default {
 
   setup() {
     const Store = useStore();
-    const InsurancesList = computed(() => {
-      return Store.getters.StateGetter("InsurancesList");
+    const InsuranceList = computed(() => {
+      return Store.getters.StateGetter("InsuranceList");
     });
 
     return {
       Store,
-      InsurancesList,
+      InsuranceList,
     };
   },
 };

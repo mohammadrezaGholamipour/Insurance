@@ -13,7 +13,7 @@
       <InsuranceCarousel />
     </div>
     <!-- /////// -->
-    <hr class="Hr" />
+    <hr id="HrInsuranceCarousel" class="Hr" />
     <!-- /////// -->
     <div id="Row3">
       <InsuranceText />
@@ -78,5 +78,10 @@ export default {
   border-top: 4px solid rgb(88, 161, 255);
   border-radius: 5px;
   width: 100%;
+}
+@media screen and (max-width: 810px) {
+  #HrInsuranceCarousel {
+    display: none !important;
+  }
 }
 </style>

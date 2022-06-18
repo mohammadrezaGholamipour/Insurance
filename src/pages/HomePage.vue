@@ -11,7 +11,7 @@ export default {
   components: { FullHome },
   setup() {
     const Store = useStore();
-    Store.dispatch("SupabaseInsurancesList");
+    Store.dispatch("SupabaseInsuranceList");
     Store.dispatch("SupabaseInsuranceStep");
     Store.dispatch("SupabaseBanner");
     Store.dispatch("SupabaseInsuranceInfo");

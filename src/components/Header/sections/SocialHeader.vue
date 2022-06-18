@@ -1,16 +1,16 @@
 <template>
-  <q-skeleton v-if="!Social" bordered type="circle" />
+  <q-skeleton v-if="!InsuranceSocial" bordered type="circle" />
   <q-fab
     active-icon="keyboard_arrow_up"
     icon="keyboard_arrow_down"
     text-color="white"
-    v-show="!!Social"
+    v-show="!!InsuranceSocial"
     direction="down"
     padding="none"
     id="Social"
   >
     <q-fab-action
-      v-for="(items, index) in Social"
+      v-for="(items, index) in InsuranceSocial"
       :color="items.Color"
       :label="items.Label"
       :icon="items.Icon"
@@ -22,7 +22,7 @@
 <script>
 export default {
   name: "SocialHeader",
-  props: ["Social"],
+  props: ["InsuranceSocial"],
 };
 </script>
 

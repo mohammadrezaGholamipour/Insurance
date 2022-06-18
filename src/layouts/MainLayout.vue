@@ -24,7 +24,7 @@
       elevated
       overlay
     >
-      <MenuMobile :Menu="Menu" />
+      <MenuMobile :Menu="InsuranceMenu" />
     </q-drawer>
     <!-- MainPage -->
     <q-inner-loading dark class="Loading" :showing="InnerLoading">
@@ -102,17 +102,17 @@ export default {
         store.commit("MenuMobileBtn");
       },
     });
-    const Menu = computed(() => {
-      return store.state.Menu;
+    const InsuranceMenu = computed(() => {
+      return store.state.InsuranceMenu;
     });
     // finish
     return {
-      Menu,
       store,
       Loading,
       MenuMobile,
       InnerLoading,
       MenuMobileBtn,
+      InsuranceMenu,
     };
   },
 };

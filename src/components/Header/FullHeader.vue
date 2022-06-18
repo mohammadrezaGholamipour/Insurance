@@ -3,14 +3,14 @@
   <div id="Header" class="shadow-5">
     <!-- MenuDesktop -->
     <div id="Right">
-      <MenuHeader :Menu="Menu" />
+      <MenuHeader :InsuranceMenu="InsuranceMenu" />
     </div>
     <!--MenuDesktop Finish -->
     <div id="Left">
       <TarikhHeader :TarikhOption="TarikhOption" />
-      <SocialHeader :Social="Social" />
+      <SocialHeader :InsuranceSocial="InsuranceSocial" />
       <SearchHeader />
-      <SettingHeader :Accounts="Accounts"><slot></slot></SettingHeader>
+      <SettingHeader :InsuranceAccounts="InsuranceAccounts"><slot></slot></SettingHeader>
     </div>
   </div>
   <!-- Finish header -->
@@ -37,19 +37,19 @@ export default {
 
   setup() {
     const store = useStore();
-    const Menu = computed(() => {
-      return store.state.Menu;
+    const InsuranceMenu = computed(() => {
+      return store.state.InsuranceMenu;
     });
-    const Social = computed(() => {
-      return store.state.Social;
+    const InsuranceSocial = computed(() => {
+      return store.state.InsuranceSocial;
     });
-    const Accounts = computed(() => {
-      return store.state.Accounts;
+    const InsuranceAccounts = computed(() => {
+      return store.state.InsuranceAccounts;
     });
     const TarikhOption = computed(() => {
       return store.state.TarikhOption;
     });
-    return { store, Menu, Social, Accounts, TarikhOption };
+    return { store, InsuranceMenu, InsuranceSocial, InsuranceAccounts, TarikhOption };
   },
 };
 </script>

@@ -6,11 +6,11 @@ export default store(function () {
   const Store = createStore({
     state: {
       MenuMobile: false,
-      Menu: "",
-      Social: "",
-      Accounts: "",
-      Banner: "",
-      InsurancesList: "",
+      InsuranceMenu: "",
+      InsuranceSocial: "",
+      InsuranceAccounts: "",
+      InsuranceBanner: "",
+      InsuranceList: "",
       InsuranceStep: "",
       InsuranceInfo: "",
       InsuranceQuestion: "",
@@ -211,23 +211,23 @@ export default store(function () {
       ],
     },
     mutations: {
-      Menu(state, data) {
-        state.Menu = data;
+      InsuranceMenu(state, data) {
+        state.InsuranceMenu = data;
       },
-      Social(state, data) {
-        state.Social = data;
+      InsuranceSocial(state, data) {
+        state.InsuranceSocial = data;
       },
-      Accounts(state, data) {
-        state.Accounts = data;
+      InsuranceAccounts(state, data) {
+        state.InsuranceAccounts = data;
       },
       MenuMobileBtn(state) {
         state.MenuMobile = !state.MenuMobile;
       },
-      Banner(state, data) {
-        state.Banner = data;
+      InsuranceBanner(state, data) {
+        state.InsuranceBanner = data;
       },
-      InsurancesList(state, data) {
-        state.InsurancesList = data;
+      InsuranceList(state, data) {
+        state.InsuranceList = data;
       },
       InsuranceStep(state, data) {
         state.InsuranceStep = data;
@@ -290,8 +290,8 @@ export default store(function () {
     actions: {
       async SupabaseMenu({ commit }) {
         try {
-          const { data } = await supabase.from("Menu").select("*");
-          commit("Menu", data);
+          const { data } = await supabase.from("InsuranceMenu").select("*");
+          commit("InsuranceMenu", data);
         } catch (error) {
           console.log(error.message);
           console.log("لیست منو دریافت نشد");
@@ -299,8 +299,8 @@ export default store(function () {
       },
       async SupabaseSocial({ commit }) {
         try {
-          const { data } = await supabase.from("Social").select("*");
-          commit("Social", data);
+          const { data } = await supabase.from("InsuranceSocial").select("*");
+          commit("InsuranceSocial", data);
         } catch (error) {
           console.log(error.message);
           console.log("لیست شبکه های اجتماعی دریافت نشد");
@@ -308,8 +308,8 @@ export default store(function () {
       },
       async SupabaseAccounts({ commit }) {
         try {
-          const { data } = await supabase.from("Accounts").select("*");
-          commit("Accounts", data);
+          const { data } = await supabase.from("InsuranceAccounts").select("*");
+          commit("InsuranceAccounts", data);
         } catch (error) {
           console.log(error.message);
           console.log("لیست دکمه های منو دریافت نشد");
@@ -317,23 +317,23 @@ export default store(function () {
       },
       async SupabaseBanner({ commit }) {
         try {
-          const { data } = await supabase.from("Banner").select("*");
-          commit("Banner", data);
+          const { data } = await supabase.from("InsuranceBanner").select("*");
+          commit("InsuranceBanner", data);
         } catch (error) {
           console.log(error.message);
           console.log("اطلاعات بنر های قرمز ابی و سبز دریافت نشد");
         }
       },
-      async SupabaseInsurancesList({ commit }) {
+      async SupabaseInsuranceList({ commit }) {
         try {
-          const InsurancesList = [];
+          const InsuranceList = [];
           for (let index = 1; index < 13; index++) {
             const { data } = await supabase.storage
               .from("public")
               .download(`insurances/Bimeh/${index}.png`);
-            InsurancesList.push(URL.createObjectURL(data));
+            InsuranceList.push(URL.createObjectURL(data));
           }
-          commit("InsurancesList", InsurancesList);
+          commit("InsuranceList", InsuranceList);
         } catch (error) {
           console.log(error.message);
           console.log("عکس های انواع بیمه دریافت نشد");
@@ -359,7 +359,7 @@ export default store(function () {
       },
       async SupabaseInsuranceQuestion({ commit }) {
         try {
-          const { data } = await supabase.from("InuranceQuestion").select("*");
+          const { data } = await supabase.from("InsuranceQuestion").select("*");
           commit("InsuranceQuestion", data);
         } catch (error) {
           console.log(error.message);

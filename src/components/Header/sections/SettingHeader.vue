@@ -1,11 +1,11 @@
 <template>
-  <div id="Skelton" v-if="!Accounts">
-    <q-skeleton v-for="items in 4" :key="items" bordered type="circle" />
+  <div id="Skelton" v-if="!InsuranceAccounts">
+    <q-skeleton v-for="items in 3" :key="items" bordered type="circle" />
   </div>
-  <div v-show="!!Accounts" id="Setting">
+  <div v-show="!!InsuranceAccounts" id="Setting">
     <slot></slot>
     <q-btn
-      v-for="(items, index) in Accounts"
+      v-for="(items, index) in InsuranceAccounts"
       :text-color="items.TextColor"
       class="q-mx-sm Btn"
       :icon="items.Icon"
@@ -24,7 +24,7 @@
 <script>
 export default {
   name: "SettingHeader",
-  props: ["Accounts"],
+  props: ["InsuranceAccounts"],
 };
 </script>
 
