@@ -1,5 +1,5 @@
 <template>
-  <div>وارد شدن</div>
+  <div></div>
 </template>
 
 <script>

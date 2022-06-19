@@ -1,5 +1,5 @@
 <template>
-  <div>درباره ما</div>
+  <div></div>
 </template>
 
 <script>

@@ -44,25 +44,28 @@
         >
           <q-btn fab icon="keyboard_arrow_up" color="accent" />
         </q-page-scroller>
+        <FullFooter />
       </q-page-container>
     </transition>
-    <!-- Footer -->
   </q-layout>
 </template>
 
 <script>
 import { computed, onMounted, ref, watch } from "@vue/runtime-core";
 import MenuMobile from "../components/Header/sections/MenuMobile";
+import FullFooter from "src/components/Footer/FullFooter.vue";
 import FullHeader from "src/components/Header/FullHeader.vue";
 import FirstLoading from "../components/FirstLoading.vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+
 export default {
   name: "MainLayout",
   components: {
     FirstLoading,
     FullHeader,
     MenuMobile,
+    FullFooter,
   },
 
   setup() {

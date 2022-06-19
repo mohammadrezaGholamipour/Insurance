@@ -1,5 +1,5 @@
 <template>
-  <div>بیمه ماشین</div>
+  <div></div>
 </template>
 
 <script>

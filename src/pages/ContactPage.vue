@@ -1,5 +1,5 @@
 <template>
-  <div>تماس با ما</div>
+  <div></div>
 </template>
 
 <script>

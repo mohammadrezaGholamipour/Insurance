@@ -1,5 +1,5 @@
 <template>
-  <div>اخرین اخبار</div>
+  <div></div>
 </template>
 
 <script>

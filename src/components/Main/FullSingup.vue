@@ -17,7 +17,6 @@
         <input type="email" placeholder="ایمیل" />
         <input type="password" placeholder="رمز عبور" />
         <button>تایید</button>
-        <a>آیا قبلا ثبت نام کرده اید؟</a>
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -33,20 +32,19 @@
         <input type="password" placeholder="رمز عبور" />
         <a href="#">رمز خود را فراموش کرده اید؟</a>
         <button>تایید</button>
-        <a> ثبت نام و ساخت اکانت </a>
       </form>
     </div>
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
-          <h2>خوش امدید</h2>
+          <h2>خوش آمدید</h2>
           <p>در صورت داشتن اکانت بر روی دکمه زیر کلیک کنید</p>
           <button class="ghost" id="signIn" @click="HandelForm">
             وارد شدن
           </button>
         </div>
         <div class="overlay-panel overlay-right">
-          <h2>خوش امدید</h2>
+          <h2>خوش آمدید</h2>
           <p>درصورت نداشتن اکانت برو روی دکمه زیر کلیک کنید</p>
           <button class="ghost" id="signUp" @click="HandelForm">ثبت نام</button>
         </div>
@@ -69,18 +67,9 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 694px) {
-  .overlay-container {
+@media screen and (max-width: 660px) {
+  .container {
     display: none !important;
-  }
-  .sign-up-container {
-    width: 100% !important;
-  }
-  .sign-in-container {
-    width: 100% !important;
-  }
-  form {
-    padding: 0 10px !important;
   }
 }
 h2 {
@@ -133,6 +122,7 @@ button.ghost {
 }
 
 form {
+  direction: rtl;
   background-color: #ffffff;
   display: flex;
   align-items: center;
