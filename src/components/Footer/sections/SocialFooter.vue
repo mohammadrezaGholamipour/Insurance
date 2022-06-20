@@ -58,6 +58,8 @@ export default {
 
 <style scoped>
 #SocialFooter {
+  position: relative;
+ top: 45px;
   background-color: #5f259f;
   justify-content: space-evenly;
   flex-direction: row-reverse;

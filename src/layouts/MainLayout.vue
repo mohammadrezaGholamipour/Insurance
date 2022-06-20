@@ -44,7 +44,7 @@
         >
           <q-btn fab icon="keyboard_arrow_up" color="accent" />
         </q-page-scroller>
-        <FullFooter />
+        <FullFooter  />
       </q-page-container>
     </transition>
   </q-layout>
@@ -147,4 +147,5 @@ export default {
 .Loading {
   z-index: 2;
 }
+
 </style>
