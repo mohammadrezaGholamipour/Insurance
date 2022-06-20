@@ -38,13 +38,14 @@
       <q-page-container class="Page shadow-5 q-mx-auto">
         <router-view />
         <q-page-scroller
+          id="PageScroller"
           position="bottom-right"
           :scroll-offset="150"
           :offset="[18, 18]"
         >
           <q-btn fab icon="keyboard_arrow_up" color="accent" />
         </q-page-scroller>
-        <FullFooter  />
+        <FullFooter />
       </q-page-container>
     </transition>
   </q-layout>
@@ -147,5 +148,8 @@ export default {
 .Loading {
   z-index: 2;
 }
-
+#PageScroller {
+  position: relative;
+  z-index: 100;
+}
 </style>
