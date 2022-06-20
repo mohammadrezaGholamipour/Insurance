@@ -187,8 +187,8 @@ export default {
   }
 }
 
-.q-dialog__inner {
-  max-width: 300px !important;
+ .q-select__dialog {
+  max-width: 300px !important ;
   padding: 0 !important;
   text-align: center;
   margin: auto;

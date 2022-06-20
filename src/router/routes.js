@@ -20,14 +20,6 @@ const routes = [
         path: "about",
         component: () => import("src/pages/AboutPage.vue"),
       },
-      {
-        path: "signin",
-        component: () => import("src/pages/SignInPage.vue"),
-      },
-      {
-        path: "signup",
-        component: () => import("src/pages/SignUpPage.vue"),
-      },
     ],
   },
 

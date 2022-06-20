@@ -36,6 +36,9 @@
       enter-active-class="animated fadeIn"
     >
       <q-page-container class="Page shadow-5 q-mx-auto">
+        <!-- UserAccount -->
+        <UserAccount />
+        <!-- UserAccount -->
         <router-view />
         <q-page-scroller
           id="PageScroller"
@@ -52,6 +55,7 @@
 </template>
 
 <script>
+import UserAccount from "src/components/Main/sections/UserAccount.vue";
 import { computed, onMounted, ref, watch } from "@vue/runtime-core";
 import MenuMobile from "../components/Header/sections/MenuMobile";
 import FullFooter from "src/components/Footer/FullFooter.vue";
@@ -67,6 +71,7 @@ export default {
     FullHeader,
     MenuMobile,
     FullFooter,
+    UserAccount,
   },
 
   setup() {

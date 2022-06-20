@@ -5,6 +5,7 @@
   <div v-show="!!InsuranceAccounts" id="Setting">
     <slot></slot>
     <q-btn
+      @click="HandelAccount(items.Name)"
       v-for="(items, index) in InsuranceAccounts"
       :text-color="items.TextColor"
       class="q-mx-sm Btn"
@@ -22,9 +23,20 @@
 </template>
 
 <script>
+import { useStore } from "vuex";
 export default {
   name: "SettingHeader",
   props: ["InsuranceAccounts"],
+  setup() {
+    const Store = useStore();
+    const HandelAccount = (Name) => {
+       Store.commit("HandelAccount", Name);
+    };
+    return {
+      Store,
+      HandelAccount,
+    };
+  },
 };
 </script>
 

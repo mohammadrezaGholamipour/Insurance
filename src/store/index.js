@@ -6,6 +6,7 @@ export default store(function () {
   const Store = createStore({
     state: {
       MenuMobile: false,
+      UserAccount: false,
       InsuranceMenu: "",
       InsuranceSocial: "",
       InsuranceAccounts: "",
@@ -220,6 +221,11 @@ export default store(function () {
       },
       InsuranceAccounts(state, data) {
         state.InsuranceAccounts = data;
+      },
+      HandelAccount(state, Name) {
+        if (Name === "ثبت نام") {
+          state.UserAccount = !state.UserAccount;
+        }
       },
       MenuMobileBtn(state) {
         state.MenuMobile = !state.MenuMobile;

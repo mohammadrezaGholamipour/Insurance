@@ -1,73 +1,93 @@
 <template>
-  <div
-    class="container"
-    id="container"
-    :class="Form ? 'right-panel-active' : ''"
+  <q-dialog
+    v-model="UserAccount"
+    transition-show="slide-left"
+    transition-hide="slide-left"
   >
-    <div class="form-container sign-up-container">
-      <form action="#">
-        <h2>ساخت اکانت</h2>
-        <div class="social-container">
-          <a class="social"><i class="fab fa-facebook-f"></i></a>
-          <a class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <span>ورود از طریق شبکه های اجتماعی</span>
-        <input type="text" placeholder="نام کاربری" />
-        <input type="email" placeholder="ایمیل" />
-        <input type="password" placeholder="رمز عبور" />
-        <button>تایید</button>
-      </form>
-    </div>
-    <div class="form-container sign-in-container">
-      <form action="#">
-        <h2>وارد شدن</h2>
-        <div class="social-container">
-          <a class="social"><i class="fab fa-facebook-f"></i></a>
-          <a class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <span>ورود از طریق شبکه های اجتماعی</span>
-        <input type="email" placeholder="ایمیل" />
-        <input type="password" placeholder="رمز عبور" />
-        <a href="#">رمز خود را فراموش کرده اید؟</a>
-        <button>تایید</button>
-      </form>
-    </div>
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h2>خوش آمدید</h2>
-          <p>در صورت داشتن اکانت بر روی دکمه زیر کلیک کنید</p>
-          <button class="ghost" id="signIn" @click="HandelForm">
-            وارد شدن
-          </button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h2>خوش آمدید</h2>
-          <p>درصورت نداشتن اکانت برو روی دکمه زیر کلیک کنید</p>
-          <button class="ghost" id="signUp" @click="HandelForm">ثبت نام</button>
+    <div
+      class="container"
+      id="container"
+      :class="Form ? 'right-panel-active' : ''"
+    >
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h2>ساخت اکانت</h2>
+          <div class="social-container">
+            <a class="social"><i class="fab fa-facebook-f"></i></a>
+            <a class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>ورود از طریق شبکه های اجتماعی</span>
+          <input type="text" placeholder="نام کاربری" />
+          <input type="email" placeholder="ایمیل" />
+          <input type="password" placeholder="رمز عبور" />
+          <button>تایید</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h2>وارد شدن</h2>
+          <div class="social-container">
+            <a class="social"><i class="fab fa-facebook-f"></i></a>
+            <a class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>ورود از طریق شبکه های اجتماعی</span>
+          <input type="email" placeholder="ایمیل" />
+          <input type="password" placeholder="رمز عبور" />
+          <a href="#">رمز خود را فراموش کرده اید؟</a>
+          <button>تایید</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h2>خوش آمدید</h2>
+            <p>در صورت داشتن اکانت بر روی دکمه زیر کلیک کنید</p>
+            <button class="ghost" id="signIn" @click="HandelForm">
+              وارد شدن
+            </button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h2>خوش آمدید</h2>
+            <p>درصورت نداشتن اکانت برو روی دکمه زیر کلیک کنید</p>
+            <button class="ghost" id="signUp" @click="HandelForm">
+              ثبت نام
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </q-dialog>
 </template>
 
 <script>
+import { computed } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
+import { useStore } from "vuex";
+
 export default {
   setup() {
+    const Store = useStore();
     const Form = ref(false);
     const HandelForm = () => {
       Form.value = !Form.value;
     };
-    return { Form, HandelForm };
+    const UserAccount = computed({
+      get() {
+        return Store.getters.StateGetter("UserAccount");
+      },
+      set() {
+        Store.commit("HandelAccount", "ثبت نام");
+      },
+    });
+    return { Form, HandelForm, UserAccount };
   },
 };
 </script>
 
 <style scoped>
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 737px) {
   .container {
     display: none !important;
   }

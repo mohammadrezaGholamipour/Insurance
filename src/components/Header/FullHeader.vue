@@ -94,6 +94,7 @@ export default {
   }
   #Left {
     padding: 5px 0;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 845px) {
