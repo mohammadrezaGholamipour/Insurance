@@ -4,59 +4,45 @@
     transition-hide="slide-left"
     v-model="HideAndShowForm"
   >
-    <div
-      class="container"
-      id="container"
-      :class="SigninOrSingupForm ? 'right-panel-active' : ''"
-    >
-      <div class="form-container sign-up-container">
-        <form action="#">
-          <h2>ساخت اکانت</h2>
-          <div class="social-container">
-            <a class="social"><i class="fab fa-facebook-f"></i></a>
-            <a class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a class="social"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          <span>ورود از طریق شبکه های اجتماعی</span>
-          <input type="text" placeholder="نام کاربری" />
-          <input type="email" placeholder="ایمیل" />
-          <input type="password" placeholder="رمز عبور" />
-          <button>تایید</button>
-        </form>
-      </div>
-      <div class="form-container sign-in-container">
-        <form action="#">
-          <h2>وارد شدن</h2>
-          <div class="social-container">
-            <a class="social"><i class="fab fa-facebook-f"></i></a>
-            <a class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a class="social"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          <span>ورود از طریق شبکه های اجتماعی</span>
-          <input type="email" placeholder="ایمیل" />
-          <input type="password" placeholder="رمز عبور" />
-          <a href="#">رمز خود را فراموش کرده اید؟</a>
-          <button>تایید</button>
-        </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
-            <h2>خوش آمدید</h2>
-            <p>در صورت داشتن اکانت بر روی دکمه زیر کلیک کنید</p>
-            <button class="ghost" id="signIn" @click="HandelSigninOrSingupForm">
-              وارد شدن
-            </button>
-          </div>
-          <div class="overlay-panel overlay-right">
-            <h2>خوش آمدید</h2>
-            <p>درصورت نداشتن اکانت برو روی دکمه زیر کلیک کنید</p>
-            <button class="ghost" id="signUp" @click="HandelSigninOrSingupForm">
-              ثبت نام
-            </button>
-          </div>
+    <div id="Signin">
+      <form v-show="SigninOrSingupForm" action="#">
+        <h3>ثبت نام</h3>
+        <div class="social-container">
+          <a class="social bg-primary text-white"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a class="social bg-red text-white"
+            ><i class="fab fa-google-plus-g"></i
+          ></a>
+          <a class="social bg-info text-white"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
         </div>
-      </div>
+        <span>ورود از طریق شبکه های اجتماعی</span>
+        <input type="text" placeholder="نام کاربری" />
+        <input type="email" placeholder="ایمیل" />
+        <input type="password" placeholder="رمز عبور" />
+        <button>تایید</button>
+      </form>
+      <form action="#" v-show="!SigninOrSingupForm">
+        <h3>وارد شدن</h3>
+        <div class="social-container">
+          <a class="social bg-primary text-white"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a class="social bg-red text-white"
+            ><i class="fab fa-google-plus-g"></i
+          ></a>
+          <a class="social bg-info text-white"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+        <span>ورود از طریق شبکه های اجتماعی</span>
+        <input type="email" placeholder="ایمیل" />
+        <input type="password" placeholder="رمز عبور" />
+        <a href="#">رمز خود را فراموش کرده اید؟</a>
+        <button>تایید</button>
+      </form>
     </div>
   </q-dialog>
 </template>
@@ -79,59 +65,66 @@ export default {
     const SigninOrSingupForm = computed(() => {
       return Store.getters.StateGetter("SigninOrSingupForm");
     });
-    const HandelSigninOrSingupForm = computed(() => {
-      Store.commit("HandelSigninOrSingupForm");
-    });
     return {
       Store,
       HideAndShowForm,
       SigninOrSingupForm,
-      HandelSigninOrSingupForm,
     };
   },
 };
 </script>
 
 <style scoped>
-@media screen and (max-width: 737px) {
-  .container {
-    display: none !important;
-  }
-}
-h2 {
-  text-align: center;
-  margin: 0;
-}
-p {
-  font-size: 14px;
-  font-weight: 100;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-  margin: 20px 0 30px;
-}
-span {
-  font-size: 12px;
-}
-
-a {
-  font-size: 14px;
-  text-decoration: none;
-  margin: 15px 0;
-  cursor: pointer;
-}
-
-button {
+#Signin {
+  border: 2px solid orange;
   border-radius: 20px;
+  width: 328px;
+}
+.social-container {
+  margin: 20px 0;
+}
+.social-container a {
+  border: 1px solid #dddddd;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+}
+
+form {
+  background-color: #ffffff;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  direction: rtl;
+  display: flex;
+  padding: 30px;
+  height: 100%;
+  width: 100%;
+}
+input {
+  background-color: #eee;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: none;
+  width: 100%;
+}
+button {
+  transition: transform 80ms ease-in;
   border: 1px solid #ff4b2b;
   background-color: #ff4b2b;
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 12px 45px;
-  letter-spacing: 1px;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 20px;
+  color: #ffffff;
+  padding: 12px 45px;
+  font-weight: bold;
+  font-size: 12px;
   cursor: pointer;
-  transition: transform 80ms ease-in;
 }
 
 button:active {
@@ -147,162 +140,25 @@ button.ghost {
   border-color: #ffffff;
 }
 
-form {
-  direction: rtl;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
+h3 {
   text-align: center;
+  margin: 0;
+}
+p {
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+  line-height: 20px;
+  font-weight: 100;
+  font-size: 14px;
+}
+span {
+  font-size: 12px;
 }
 
-input {
-  background-color: #eee;
-  border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 100%;
-}
-
-.container {
-  margin: 15px auto;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
-  overflow: hidden;
-  width: 768px;
-  max-width: 100%;
-  min-height: 480px;
-}
-
-.form-container {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  transition: all 0.6s ease-in-out;
-}
-
-.sign-in-container {
-  left: 0;
-  width: 50%;
-  z-index: 2;
-}
-
-.container.right-panel-active .sign-in-container {
-  transform: translateX(100%);
-}
-
-.sign-up-container {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
-}
-
-.container.right-panel-active .sign-up-container {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-  animation: show 0.6s;
-}
-
-@keyframes show {
-  0%,
-  49.99% {
-    opacity: 0;
-    z-index: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 1;
-    z-index: 5;
-  }
-}
-
-.overlay-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  transition: transform 0.6s ease-in-out;
-  z-index: 100;
-}
-
-.container.right-panel-active .overlay-container {
-  transform: translateX(-100%);
-}
-
-.overlay {
-  background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0;
-  color: #ffffff;
-  position: relative;
-  left: -100%;
-  height: 100%;
-  width: 200%;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-}
-
-.container.right-panel-active .overlay {
-  transform: translateX(50%);
-}
-
-.overlay-panel {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 40px;
-  text-align: center;
-  top: 0;
-  height: 100%;
-  width: 50%;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-}
-
-.overlay-left {
-  transform: translateX(-20%);
-}
-
-.container.right-panel-active .overlay-left {
-  transform: translateX(0);
-}
-
-.overlay-right {
-  right: 0;
-  transform: translateX(0);
-}
-
-.container.right-panel-active .overlay-right {
-  transform: translateX(20%);
-}
-
-.social-container {
-  margin: 20px 0;
-}
-
-.social-container a {
-  border: 1px solid #dddddd;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-  height: 40px;
-  width: 40px;
+a {
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 15px 0;
 }
 </style>

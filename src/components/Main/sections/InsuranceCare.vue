@@ -187,7 +187,7 @@ export default {
   }
 }
 
- .q-select__dialog {
+.q-select__dialog {
   max-width: 300px !important ;
   padding: 0 !important;
   text-align: center;
@@ -198,7 +198,9 @@ export default {
 .q-virtual-scroll__content {
   background-color: rgb(55, 132, 247);
 }
-
+.q-dialog__inner {
+  padding: 0 !important;
+}
 .q-item {
   border-bottom: 1px solid white !important;
 }
