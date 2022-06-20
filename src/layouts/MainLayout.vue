@@ -78,10 +78,10 @@ export default {
     const InnerLoading = ref(true);
     const Loading = ref(true);
     const store = useStore();
-    const Rout = useRoute();
+    const Route = useRoute();
     // InnerLoading
 
-    watch(Rout, () => {
+    watch(Route, () => {
       InnerLoading.value = true;
       setTimeout(() => {
         InnerLoading.value = false;

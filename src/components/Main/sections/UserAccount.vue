@@ -1,13 +1,13 @@
 <template>
   <q-dialog
-    v-model="UserAccount"
     transition-show="slide-left"
     transition-hide="slide-left"
+    v-model="HideAndShowForm"
   >
     <div
       class="container"
       id="container"
-      :class="Form ? 'right-panel-active' : ''"
+      :class="SigninOrSingupForm ? 'right-panel-active' : ''"
     >
       <div class="form-container sign-up-container">
         <form action="#">
@@ -44,14 +44,14 @@
           <div class="overlay-panel overlay-left">
             <h2>خوش آمدید</h2>
             <p>در صورت داشتن اکانت بر روی دکمه زیر کلیک کنید</p>
-            <button class="ghost" id="signIn" @click="HandelForm">
+            <button class="ghost" id="signIn" @click="HandelSigninOrSingupForm">
               وارد شدن
             </button>
           </div>
           <div class="overlay-panel overlay-right">
             <h2>خوش آمدید</h2>
             <p>درصورت نداشتن اکانت برو روی دکمه زیر کلیک کنید</p>
-            <button class="ghost" id="signUp" @click="HandelForm">
+            <button class="ghost" id="signUp" @click="HandelSigninOrSingupForm">
               ثبت نام
             </button>
           </div>
@@ -63,25 +63,31 @@
 
 <script>
 import { computed } from "@vue/runtime-core";
-import { ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 
 export default {
   setup() {
     const Store = useStore();
-    const Form = ref(false);
-    const HandelForm = () => {
-      Form.value = !Form.value;
-    };
-    const UserAccount = computed({
+    const HideAndShowForm = computed({
       get() {
-        return Store.getters.StateGetter("UserAccount");
+        return Store.getters.StateGetter("HideAndShowForm");
       },
       set() {
-        Store.commit("HandelAccount", "ثبت نام");
+        Store.commit("HandelHideAndShowForm");
       },
     });
-    return { Form, HandelForm, UserAccount };
+    const SigninOrSingupForm = computed(() => {
+      return Store.getters.StateGetter("SigninOrSingupForm");
+    });
+    const HandelSigninOrSingupForm = computed(() => {
+      Store.commit("HandelSigninOrSingupForm");
+    });
+    return {
+      Store,
+      HideAndShowForm,
+      SigninOrSingupForm,
+      HandelSigninOrSingupForm,
+    };
   },
 };
 </script>

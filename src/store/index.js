@@ -6,7 +6,8 @@ export default store(function () {
   const Store = createStore({
     state: {
       MenuMobile: false,
-      UserAccount: false,
+      HideAndShowForm: false,
+      SigninOrSingupForm: false,
       InsuranceMenu: "",
       InsuranceSocial: "",
       InsuranceAccounts: "",
@@ -222,10 +223,17 @@ export default store(function () {
       InsuranceAccounts(state, data) {
         state.InsuranceAccounts = data;
       },
-      HandelAccount(state, Name) {
+      HandelHideAndShowForm(state, Name) {
+        state.HideAndShowForm = !state.HideAndShowForm;
         if (Name === "ثبت نام") {
-          state.UserAccount = !state.UserAccount;
+          state.SigninOrSingupForm = true;
+        } else {
+          state.SigninOrSingupForm = false;
         }
+      },
+      HandelSigninOrSingupForm(state) {
+        console.log("salam");
+        state.SigninOrSingupForm = !state.SigninOrSingupForm;
       },
       MenuMobileBtn(state) {
         state.MenuMobile = !state.MenuMobile;

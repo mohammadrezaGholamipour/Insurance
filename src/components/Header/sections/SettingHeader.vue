@@ -5,7 +5,7 @@
   <div v-show="!!InsuranceAccounts" id="Setting">
     <slot></slot>
     <q-btn
-      @click="HandelAccount(items.Name)"
+      @click="HandelHideAndShowForm(items.Name)"
       v-for="(items, index) in InsuranceAccounts"
       :text-color="items.TextColor"
       class="q-mx-sm Btn"
@@ -29,12 +29,12 @@ export default {
   props: ["InsuranceAccounts"],
   setup() {
     const Store = useStore();
-    const HandelAccount = (Name) => {
-       Store.commit("HandelAccount", Name);
+    const HandelHideAndShowForm = (Name) => {
+      Store.commit("HandelHideAndShowForm", Name);
     };
     return {
       Store,
-      HandelAccount,
+      HandelHideAndShowForm,
     };
   },
 };
