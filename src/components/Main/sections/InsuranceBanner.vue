@@ -1,9 +1,9 @@
 <template>
   <div id="InsuranceBanner">
     <q-banner
-      v-show="!!Banner"
+      v-show="!!InsuranceBanner"
       class="text-white q-py-xs shadow-5"
-      v-for="items in Banner"
+      v-for="items in InsuranceBanner"
       :class="items.Class"
       :key="items.id"
       inline-actions
@@ -19,7 +19,7 @@
         <p class="q-ma-none font" v-text="items.Banner"></p>
       </div>
     </q-banner>
-    <div id="skeletonBannerParent" v-if="!Banner">
+    <div id="skeletonBannerParent" v-if="!InsuranceBanner">
       <q-skeleton
         id="skeletonBanner"
         class="Banner1"
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { computed, ref } from "@vue/runtime-core";
+import { computed} from "@vue/runtime-core";
 import { useStore } from "vuex";
 
 export default {
@@ -51,10 +51,10 @@ export default {
   components: {},
   setup() {
     const Store = useStore();
-    const Banner = computed(() => {
-      return Store.getters.StateGetter("Banner");
+    const InsuranceBanner = computed(() => {
+      return Store.getters.StateGetter("InsuranceBanner");
     });
-    return { Store, Banner };
+    return { Store, InsuranceBanner };
   },
 };
 </script>

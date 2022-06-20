@@ -4,9 +4,9 @@
     prev-icon="fas fa-caret-square-left"
     control-color="primary"
     id="InsuranceCarousel"
+    :autoplay="true"
     v-model="Slide"
     height="200px"
-    autoplay="1"
     animated
     infinite
     arrows
