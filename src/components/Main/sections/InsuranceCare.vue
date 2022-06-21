@@ -3,8 +3,8 @@
   <div id="Stepper" v-show="!!InsuranceStep & !!insurancesInput">
     <q-stepper
       v-show="InsuranceStep.length === 4"
-      transition-next="slide-right"
-      transition-prev="slide-left"
+      transition-next="jump-right"
+      transition-prev="jump-left"
       header-class="Mobile"
       v-model="Step"
       ref="stepper"

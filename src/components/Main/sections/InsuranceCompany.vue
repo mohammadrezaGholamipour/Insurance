@@ -2,6 +2,9 @@
   <q-carousel
     next-icon="fas fa-caret-square-right"
     prev-icon="fas fa-caret-square-left"
+    transition-next="jump-left"
+    transition-prev="jump-right"
+    transition-duration="1000"
     control-color="primary"
     id="InsuranceCarousel"
     :autoplay="true"
