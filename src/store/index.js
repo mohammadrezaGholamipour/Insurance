@@ -344,7 +344,7 @@ export default store(function () {
       },
       async SupabaseBanner({ commit }) {
         try {
-          const { data } = await supabase.from("InsuranceBanner").select("*");
+          const { data } = await supabase.from("InsuranceBanner");
           commit("InsuranceBanner", data);
         } catch (error) {
           console.log(error.message);
@@ -353,14 +353,8 @@ export default store(function () {
       },
       async SupabaseInsuranceList({ commit }) {
         try {
-          const InsuranceList = [];
-          for (let index = 1; index < 13; index++) {
-            const { data } = await supabase.storage
-              .from("public")
-              .download(`insurances/Bimeh/${index}.png`);
-            InsuranceList.push(URL.createObjectURL(data));
-          }
-          commit("InsuranceList", InsuranceList);
+          const { data } = await supabase.from("InsuranceList").select("*");
+          commit("InsuranceList", data);
         } catch (error) {
           console.log(error.message);
           console.log("عکس های انواع بیمه دریافت نشد");

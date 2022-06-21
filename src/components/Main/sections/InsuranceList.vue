@@ -6,8 +6,8 @@
       class="shadow-5"
       height="68px"
       width="68px"
-      :src="items"
-      :key="items"
+      :src="items.Src"
+      :key="items.id"
       alt="بیمه"
       id="img"
     />
