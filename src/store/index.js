@@ -231,6 +231,9 @@ export default store(function () {
           state.SigninOrSingupForm = false;
         }
       },
+      HandelSigninOrSingupForm(state) {
+        state.SigninOrSingupForm = !state.SigninOrSingupForm;
+      },
       MenuMobileBtn(state) {
         state.MenuMobile = !state.MenuMobile;
       },

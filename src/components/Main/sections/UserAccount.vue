@@ -22,7 +22,7 @@
         <input type="text" placeholder="نام کاربری" />
         <input type="email" placeholder="ایمیل" />
         <input type="password" placeholder="رمز عبور" />
-        <a href="#">قبلا ثبت نام کرده اید؟</a>
+        <a href="#" @click="HandelSigninOrSingupForm">قبلا ثبت نام کرده اید؟</a>
         <button>تایید</button>
       </form>
       <form action="#" v-show="!SigninOrSingupForm">
@@ -42,7 +42,7 @@
         <input type="email" placeholder="ایمیل" />
         <input type="password" placeholder="رمز عبور" />
         <a href="#">رمز خود را فراموش کرده اید؟</a>
-        <a href="#">ثبت نام و ساخت اکانت؟</a>
+        <a href="#" @click="HandelSigninOrSingupForm">ثبت نام و ساخت اکانت؟</a>
         <button>تایید</button>
       </form>
     </div>
@@ -67,10 +67,15 @@ export default {
     const SigninOrSingupForm = computed(() => {
       return Store.getters.StateGetter("SigninOrSingupForm");
     });
+    const HandelSigninOrSingupForm = () => {
+      Store.commit("HandelSigninOrSingupForm");
+    };
+
     return {
       Store,
       HideAndShowForm,
       SigninOrSingupForm,
+      HandelSigninOrSingupForm,
     };
   },
 };
