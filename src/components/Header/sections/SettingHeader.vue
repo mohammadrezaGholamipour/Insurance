@@ -7,8 +7,9 @@
     <q-btn
       @click="HandelHideAndShowForm(items.Name)"
       v-for="(items, index) in InsuranceAccounts"
-      :text-color="items.TextColor"
+      :class="items.Class"
       class="q-mx-sm Btn"
+      text-color="white"
       :icon="items.Icon"
       :to="items.Link"
       :key="index"
