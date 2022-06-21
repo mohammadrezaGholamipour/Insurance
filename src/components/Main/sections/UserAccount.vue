@@ -4,7 +4,7 @@
     transition-hide="slide-left"
     v-model="HideAndShowForm"
   >
-    <div id="Signin">
+    <div id="Main">
       <form v-show="SigninOrSingupForm" action="#">
         <h3>ثبت نام</h3>
         <div class="social-container">
@@ -22,6 +22,7 @@
         <input type="text" placeholder="نام کاربری" />
         <input type="email" placeholder="ایمیل" />
         <input type="password" placeholder="رمز عبور" />
+        <a href="#">قبلا ثبت نام کرده اید؟</a>
         <button>تایید</button>
       </form>
       <form action="#" v-show="!SigninOrSingupForm">
@@ -41,6 +42,7 @@
         <input type="email" placeholder="ایمیل" />
         <input type="password" placeholder="رمز عبور" />
         <a href="#">رمز خود را فراموش کرده اید؟</a>
+        <a href="#">ثبت نام و ساخت اکانت؟</a>
         <button>تایید</button>
       </form>
     </div>
@@ -75,8 +77,8 @@ export default {
 </script>
 
 <style scoped>
-#Signin {
-  border: 2px solid orange;
+#Main {
+  border: 3px solid orange;
   border-radius: 20px;
   width: 328px;
 }
@@ -159,6 +161,6 @@ a {
   text-decoration: none;
   font-size: 14px;
   cursor: pointer;
-  margin: 15px 0;
+  margin: 10px 0;
 }
 </style>
