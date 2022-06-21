@@ -14,6 +14,21 @@ export default store(function () {
       InsuranceBanner: "",
       InsuranceList: "",
       InsuranceStep: "",
+      InsuranceStepNumber: 1,
+      InsuranceStepButton: [
+        {
+          Id: 1,
+          Name: "مرحله بعد",
+          Disable: false,
+          Icon: "fa-solid fa-caret-left",
+        },
+        {
+          Id: 2,
+          Name: "مرحله قبل",
+          Disable: false,
+          Icon: "fa-solid fa-caret-left",
+        },
+      ],
       InsuranceInfo: "",
       InsuranceQuestion: "",
       InsuranceCompany: [[], []],
@@ -265,6 +280,13 @@ export default store(function () {
       InsuranceQuestion(state, data) {
         state.InsuranceQuestion = data;
       },
+      HandelButtonInsurence(state, Name) {
+        if (Name === "مرحله بعد") {
+          state.InsuranceStepNumber++;
+        } else {
+          state.InsuranceStepNumber--;
+        }
+      },
       HandelInputInsurence(state, { Data, index }) {
         ////////////////////////////////////////////////////////////////////
         const insurancesInput = state.insurancesInput;
@@ -307,6 +329,25 @@ export default store(function () {
           } else {
             Step1[2].Value = "";
             Step1[2].Disable = true;
+          }
+        }
+        ////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+        if (index === 4) {
+          if (Data) {
+            Step2.forEach((items) => (items.Disable = false));
+            Step2[2].Disable = true;
+            if (Step2[0].Value !== Data) {
+              Step2.forEach((items) => {
+                items.Value = "";
+              });
+            }
+          } else {
+            Step2.forEach((items) => {
+              items.Disable = true;
+              Step2[0].Disable = false;
+              items.Value = "";
+            });
           }
         }
         ////////////////////////////////////////////////////////////////////

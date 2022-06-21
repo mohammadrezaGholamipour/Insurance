@@ -3,17 +3,17 @@
   <div id="Stepper" v-show="!!InsuranceStep & !!insurancesInput">
     <q-stepper
       v-show="InsuranceStep.length === 4"
+      v-model="InsuranceStepNumber"
       transition-next="jump-right"
       transition-prev="jump-left"
       header-class="Mobile"
-      v-model="Step"
       ref="stepper"
       animated
     >
       <q-step
+        :done="InsuranceStepNumber > items.Step"
         v-for="items in InsuranceStep"
         :active-icon="items.Icon"
-        :done="Step > items.Step"
         :error-icon="items.Icon"
         active-color="primary"
         :title="items.Header"
@@ -30,10 +30,10 @@
               <q-select
                 @update:modelValue="HandelInputInsurence($event, index)"
                 dropdown-icon="fas fa-caret-square-down text-primary"
+                v-show="InsuranceStepNumber === items.Step"
                 v-for="(items, index) in insurancesInput"
                 popup-content-class="text-white"
                 class="q-ma-sm cursor-pointer"
-                v-show="Step === items.Step"
                 :modelValue="items.Value"
                 :disable="items.Disable"
                 :options="items.Options"
@@ -59,20 +59,13 @@
             </div>
             <div id="BtnSep" class="q-my-sm">
               <q-btn
-                icon="fa-solid fa-caret-left"
-                @click="$refs.stepper.next()"
-                v-show="4 !== items.Step"
-                label="مرحله بعد"
+                @click="HandelButtonInsurence(items.Name)"
+                v-for="items in InsuranceStepButton"
+                :label="items.Name"
+                :icon="items.Icon"
                 class="shadow-3"
                 color="primary"
-              />
-              <q-btn
-                icon-right="fa-solid fa-caret-right"
-                @click="$refs.stepper.previous()"
-                v-show="1 < items.Step"
-                label="مرحله قبل"
-                color="primary"
-                flat
+                :key="items.Id"
               />
             </div>
           </div>
@@ -93,7 +86,6 @@ const stringOptions = ["Google", "Facebook", "Twitter", "Apple", "Oracle"];
 export default {
   name: "InsuranceCare",
   setup() {
-    const Step = ref(1);
     const Store = useStore();
     const InsuranceStep = computed(() => {
       return Store.getters.StateGetter("InsuranceStep");
@@ -103,17 +95,32 @@ export default {
       return Store.getters.StateGetter("insurancesInput");
     });
     ////
+    const InsuranceStepNumber = computed(() => {
+      return Store.getters.StateGetter("InsuranceStepNumber");
+    });
+    ////
+    const InsuranceStepButton = computed(() => {
+      return Store.getters.StateGetter("InsuranceStepButton");
+    });
+    ////
+
     const options = ref(stringOptions);
     const HandelInputInsurence = (Data, index) => {
       Store.commit("HandelInputInsurence", { Data, index });
     };
+    const HandelButtonInsurence = (Name) => {
+      Store.commit("HandelButtonInsurence", Name);
+    };
     return {
+      HandelButtonInsurence,
       HandelInputInsurence,
+
+      InsuranceStepButton,
+      InsuranceStepNumber,
       insurancesInput,
       InsuranceStep,
       stringOptions,
       Store,
-      Step,
 
       options,
 
