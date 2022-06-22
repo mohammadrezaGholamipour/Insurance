@@ -22,14 +22,14 @@ export default store(function () {
           Disable: false,
           Icon: "fa-solid fa-caret-left",
           Show: true,
-          Disable: false,
+          Disable: true,
         },
         {
           Id: 2,
           Name: "مرحله قبل",
           Disable: false,
           IconRight: "fa-solid fa-caret-right",
-          Show: true,
+          Show: false,
           Disable: false,
         },
       ],
@@ -293,8 +293,8 @@ export default store(function () {
       },
       HandelInputInsurence(state, { Data, index }) {
         ////////////////////////////////////////////////////////////////////
-        const insurancesInput = state.insurancesInput;
         const CarModels = state.CarModels;
+        const insurancesInput = state.insurancesInput;
         const Step1 = insurancesInput.filter((items) => items.Step === 1);
         const Step2 = insurancesInput.filter((items) => items.Step === 2);
         const Step3 = insurancesInput.filter((items) => items.Step === 3);
@@ -387,6 +387,39 @@ export default store(function () {
         }
         ////////////////////////////////////////////////////////////////////
         insurancesInput[index].Value = Data;
+
+        const StepOneInputValue = Step1.every((items) => {
+          return items.Value !== null && items.Value !== "";
+        });
+        const StepTowInputValue = Step2.every((items) => {
+          return items.Value !== null && items.Value !== "";
+        });
+        const StepThreeInputValue = Step3.every((items) => {
+          return items.Value !== null && items.Value !== "";
+        });
+        if (state.InsuranceStepNumber === 1) {
+          if (StepOneInputValue) {
+            state.InsuranceStepButton[0].Disable = false;
+          } else {
+            state.InsuranceStepButton[0].Disable = true;
+          }
+        }
+        if (state.InsuranceStepNumber === 2) {
+          if ((Step2[0].Value === "خیر")) {
+            state.InsuranceStepButton[0].Disable = false;
+          } else if (StepTowInputValue) {
+            state.InsuranceStepButton[0].Disable = false;
+          } else {
+            state.InsuranceStepButton[0].Disable = true;
+          }
+        }
+        if (state.InsuranceStepNumber === 3) {
+          if (StepThreeInputValue) {
+            state.InsuranceStepButton[0].Disable = false;
+          } else {
+            state.InsuranceStepButton[0].Disable = true;
+          }
+        }
         ////////////////////////////////////////////////////////////////////
       },
     },
