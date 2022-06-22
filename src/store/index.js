@@ -21,12 +21,16 @@ export default store(function () {
           Name: "مرحله بعد",
           Disable: false,
           Icon: "fa-solid fa-caret-left",
+          Show: true,
+          Disable: false,
         },
         {
           Id: 2,
           Name: "مرحله قبل",
           Disable: false,
-          Icon: "fa-solid fa-caret-left",
+          IconRight: "fa-solid fa-caret-right",
+          Show: true,
+          Disable: false,
         },
       ],
       InsuranceInfo: "",
@@ -283,6 +287,7 @@ export default store(function () {
       HandelButtonInsurence(state, Name) {
         if (Name === "مرحله بعد") {
           state.InsuranceStepNumber++;
+          state.InsuranceStepButton[0].Disable = true;
         } else {
           state.InsuranceStepNumber--;
         }
