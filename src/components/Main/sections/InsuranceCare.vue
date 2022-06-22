@@ -61,6 +61,7 @@
               <q-btn
                 @click="HandelButtonInsurence(items.Name)"
                 v-for="items in InsuranceStepButton"
+                :icon-right="items.IconRight"
                 :disable="items.Disable"
                 v-show="items.Show"
                 :label="items.Name"
@@ -113,21 +114,17 @@ export default {
     const HandelButtonInsurence = (Name) => {
       Store.commit("HandelButtonInsurence", Name);
     };
-    const test = () => {
-      console.log("test");
-    };
+
     return {
       HandelButtonInsurence,
       HandelInputInsurence,
-      test,
       InsuranceStepButton,
       InsuranceStepNumber,
       insurancesInput,
       InsuranceStep,
       stringOptions,
-      Store,
-
       options,
+      Store,
 
       filterFn(val, update) {
         if (val === "") {

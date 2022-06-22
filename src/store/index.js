@@ -152,21 +152,21 @@ export default store(function () {
         {
           Step: 3,
           Label: "خسارت مالی",
-          Options: ["یکبار", "دوبار", "سه بار"],
+          Options: ["بدون خسارت", "یکبار", "دوبار", "سه بار"],
           Value: "",
           Disable: true,
         },
         {
           Step: 3,
           Label: "خسارت جانی",
-          Options: ["یکبار", "دوبار", "سه بار"],
+          Options: ["بدون خسارت", "یکبار", "دوبار", "سه بار"],
           Value: "",
           Disable: true,
         },
         {
           Step: 3,
           Label: "خسارت حوادث راننده",
-          Options: ["یکبار", "دوبار", "سه بار"],
+          Options: ["بدون خسارت", "یکبار", "دوبار", "سه بار"],
           Value: "",
           Disable: true,
         },
@@ -287,7 +287,6 @@ export default store(function () {
       HandelButtonInsurence(state, Name) {
         if (Name === "مرحله بعد") {
           state.InsuranceStepNumber++;
-          state.InsuranceStepButton[0].Disable = true;
         } else {
           state.InsuranceStepNumber--;
         }
@@ -302,7 +301,7 @@ export default store(function () {
         ////////////////////////////////////////////////////////////////////
         if (index === 0) {
           if (Data) {
-            insurancesInput.forEach((items) => (items.Disable = false));
+            Step1.forEach((items) => (items.Disable = false));
             Step1[2].Disable = true;
             if (Step1[0].Value !== Data) {
               insurancesInput.forEach((items) => {
@@ -337,21 +336,52 @@ export default store(function () {
           }
         }
         ////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////
         if (index === 4) {
           if (Data) {
             Step2.forEach((items) => (items.Disable = false));
-            Step2[2].Disable = true;
             if (Step2[0].Value !== Data) {
-              Step2.forEach((items) => {
-                items.Value = "";
-              });
+              if (Data === "خیر") {
+                Step2.forEach((items) => {
+                  items.Disable = true;
+                  items.Value = "";
+                  Step2[0].Disable = false;
+                });
+              } else {
+                Step2.forEach((items) => {
+                  items.Value = "";
+                });
+              }
             }
           } else {
             Step2.forEach((items) => {
               items.Disable = true;
-              Step2[0].Disable = false;
               items.Value = "";
+              Step2[0].Disable = false;
+            });
+          }
+        }
+        ////////////////////////////////////////////////////////////////////
+        if (index === 7) {
+          if (Data) {
+            Step3.forEach((items) => (items.Disable = false));
+            if (Step3[0].Value !== Data) {
+              if (Data === "خیر") {
+                Step3.forEach((items) => {
+                  items.Disable = true;
+                  items.Value = "";
+                  Step3[0].Disable = false;
+                });
+              } else {
+                Step3.forEach((items) => {
+                  items.Value = "";
+                });
+              }
+            }
+          } else {
+            Step3.forEach((items) => {
+              items.Disable = true;
+              items.Value = "";
+              Step3[0].Disable = false;
             });
           }
         }
