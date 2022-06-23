@@ -56,6 +56,16 @@
                   </q-item>
                 </template>
               </q-select>
+              <div id="Price" class="shadow-5" v-show="items.Step > 3">
+                <div>
+                  <h5 class="q-my-none q-mx-sm">میلیون تومان</h5>
+                  <h4 class="q-ma-none">{{ InsurancePrice }}</h4>
+                </div>
+
+                <p class="q-ma-none">
+                  قیمت اعلامی با مالی 20 میلیون تومان میباشد
+                </p>
+              </div>
             </div>
             <div id="BtnSep" class="q-my-sm">
               <q-btn
@@ -109,6 +119,10 @@ export default {
       return Store.getters.StateGetter("InsuranceStepButton");
     });
     ////
+    const InsurancePrice = computed(() => {
+      return Store.getters.StateGetter("InsurancePrice");
+    });
+    ////
 
     const options = ref(stringOptions);
     const HandelInputInsurence = (Data, index) => {
@@ -126,6 +140,7 @@ export default {
       InsuranceStepButton,
       InsuranceStepNumber,
       insurancesInput,
+      InsurancePrice,
       InsuranceStep,
       stringOptions,
       options,
@@ -167,6 +182,25 @@ export default {
   flex-direction: column;
   display: flex;
   width: 452px;
+}
+#Price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid orange;
+  background-color: rgba(255, 255, 255, 0.432);
+  padding: 10px;
+
+  border-radius: 10px;
+}
+#Price div {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+#Price p {
+  text-align: center;
 }
 #Input {
   flex-direction: row-reverse;

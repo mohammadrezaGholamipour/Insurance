@@ -15,6 +15,7 @@ export default store(function () {
       InsuranceList: "",
       InsuranceStep: "",
       InsuranceStepNumber: 1,
+      InsurancePrice: "",
       InsuranceStepButton: [
         {
           Id: 1,
@@ -377,7 +378,7 @@ export default store(function () {
               Price += (Price / 100) * 100;
             }
           }
-          console.log(Price.toLocaleString());
+          state.InsurancePrice = Price.toLocaleString();
         }
         //////////////////////////////////////////////////////////////////
         if (Value > 1) {
