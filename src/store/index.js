@@ -338,6 +338,48 @@ export default store(function () {
           }
         }
         //////////////////////////////////////////////////////////////////
+
+        if (state.InsuranceStepNumber === 4) {
+          let BimehPride = 3483000;
+          let BimehBejozPride = 4014000;
+          let Price;
+          let PrideOrPejho = state.insurancesInput[1].Value;
+          let Takhfif = state.insurancesInput[4].Value;
+          let TakhfifSales = state.insurancesInput[5].Value;
+          let Khesarat = state.insurancesInput[7].Value;
+          let KhesaratMali = state.insurancesInput[8].Value;
+          let KhesaratJani = state.insurancesInput[9].Value;
+          if (PrideOrPejho === "پراید") {
+            Price = BimehPride;
+          } else {
+            Price = BimehBejozPride;
+          }
+          if (Takhfif === "بله") {
+            Price -= (Price / 100) * parseInt(TakhfifSales);
+          }
+          if (Khesarat === "بله") {
+            if (KhesaratMali === "یکبار") {
+              Price += (Price / 100) * 20;
+            }
+            if (KhesaratMali === "دوبار") {
+              Price += (Price / 100) * 30;
+            }
+            if (KhesaratMali === "سه بار") {
+              Price += (Price / 100) * 40;
+            }
+            if (KhesaratJani === "یکبار") {
+              Price += (Price / 100) * 30;
+            }
+            if (KhesaratJani === "دوبار") {
+              Price += (Price / 100) * 70;
+            }
+            if (KhesaratJani === "سه بار") {
+              Price += (Price / 100) * 100;
+            }
+          }
+          console.log(Price.toLocaleString());
+        }
+        //////////////////////////////////////////////////////////////////
         if (Value > 1) {
           state.InsuranceStepButton[1].Show = true;
         } else {
