@@ -467,6 +467,7 @@ export default store(function () {
         if (state.InsuranceStepNumber === 1) {
           if (StepOneInputValue) {
             state.InsuranceStepButton[0].Disable = false;
+            state.InsuranceStepNumber++;
           } else {
             state.InsuranceStepButton[0].Disable = true;
           }
@@ -475,8 +476,10 @@ export default store(function () {
         if (state.InsuranceStepNumber === 2) {
           if (Step2[0].Value === "خیر") {
             state.InsuranceStepButton[0].Disable = false;
+            state.InsuranceStepNumber++;
           } else if (StepTowInputValue) {
             state.InsuranceStepButton[0].Disable = false;
+            state.InsuranceStepNumber++;
           } else {
             state.InsuranceStepButton[0].Disable = true;
           }
@@ -484,9 +487,11 @@ export default store(function () {
         ////////////////////////////////////////////////////////////////////
         if (state.InsuranceStepNumber === 3) {
           if (Step3[0].Value === "خیر") {
+            state.InsuranceStepNumber++;
             state.InsuranceStepButton[0].Disable = false;
           } else if (StepThreeInputValue) {
             state.InsuranceStepButton[0].Disable = false;
+            state.InsuranceStepNumber++;
           } else {
             state.InsuranceStepButton[0].Disable = true;
           }
@@ -583,9 +588,7 @@ export default store(function () {
       },
     },
     modules: {},
-
     strict: process.env.DEBUGGING,
   });
-
   return Store;
 });
