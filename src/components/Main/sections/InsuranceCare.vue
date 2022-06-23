@@ -6,7 +6,6 @@
       v-model="InsuranceStepNumber"
       transition-next="jump-right"
       transition-prev="jump-left"
-      @loadeddata="test"
       header-class="Mobile"
       ref="stepper"
       animated
@@ -19,7 +18,6 @@
         active-color="primary"
         :title="items.Header"
         :color="items.Color"
-        @change="test(items.Step)"
         :name="items.Step"
         :icon="items.Icon"
         done-color="green"
@@ -84,7 +82,7 @@
 </template>
 
 <script>
-import { computed, ref } from "@vue/runtime-core";
+import { computed, ref, watch } from "@vue/runtime-core";
 import { useStore } from "vuex";
 
 const stringOptions = ["Google", "Facebook", "Twitter", "Apple", "Oracle"];
@@ -104,6 +102,9 @@ export default {
       return Store.getters.StateGetter("InsuranceStepNumber");
     });
     ////
+    watch(InsuranceStepNumber, (value) => {
+      Store.commit("HandelStepInsurance", value);
+    });
     const InsuranceStepButton = computed(() => {
       return Store.getters.StateGetter("InsuranceStepButton");
     });
@@ -117,7 +118,7 @@ export default {
       Store.commit("HandelButtonInsurence", Name);
     };
     const test = () => {
-      console.log('test');
+      console.log("test");
     };
     return {
       HandelButtonInsurence,

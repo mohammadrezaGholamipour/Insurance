@@ -295,6 +295,61 @@ export default store(function () {
       InsuranceQuestion(state, data) {
         state.InsuranceQuestion = data;
       },
+      HandelStepInsurance(state, Value) {
+        const insurancesInput = state.insurancesInput;
+        const Step1 = insurancesInput.filter((items) => items.Step === 1);
+        const Step2 = insurancesInput.filter((items) => items.Step === 2);
+        const Step3 = insurancesInput.filter((items) => items.Step === 3);
+        const StepOneInputValue = Step1.every((items) => {
+          return items.Value !== null && items.Value !== "";
+        });
+        const StepTowInputValue = Step2.every((items) => {
+          return items.Value !== null && items.Value !== "";
+        });
+        const StepThreeInputValue = Step3.every((items) => {
+          return items.Value !== null && items.Value !== "";
+        });
+        ////////////////////////////////////////////////////////////////////
+        if (state.InsuranceStepNumber === 1) {
+          if (StepOneInputValue) {
+            state.InsuranceStepButton[0].Disable = false;
+          } else {
+            state.InsuranceStepButton[0].Disable = true;
+          }
+        }
+        ////////////////////////////////////////////////////////////////////
+        if (state.InsuranceStepNumber === 2) {
+          if (Step2[0].Value === "خیر") {
+            state.InsuranceStepButton[0].Disable = false;
+          } else if (StepTowInputValue) {
+            state.InsuranceStepButton[0].Disable = false;
+          } else {
+            state.InsuranceStepButton[0].Disable = true;
+          }
+        }
+        ////////////////////////////////////////////////////////////////////
+        if (state.InsuranceStepNumber === 3) {
+          if (Step3[0].Value === "خیر") {
+            state.InsuranceStepButton[0].Disable = false;
+          } else if (StepThreeInputValue) {
+            state.InsuranceStepButton[0].Disable = false;
+          } else {
+            state.InsuranceStepButton[0].Disable = true;
+          }
+        }
+        //////////////////////////////////////////////////////////////////
+        if (Value > 1) {
+          state.InsuranceStepButton[1].Show = true;
+        } else {
+          state.InsuranceStepButton[1].Show = false;
+        }
+        if (Value === 4) {
+          state.InsuranceStepButton[0].Show = false;
+        } else {
+          state.InsuranceStepButton[0].Show = true;
+        }
+        ////////////////////////////////////////////////////////////////////
+      },
       HandelButtonInsurence(state, Name) {
         if (Name === "مرحله بعد") {
           state.InsuranceStepNumber++;
