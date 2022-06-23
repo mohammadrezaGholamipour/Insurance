@@ -6,6 +6,7 @@
       v-model="InsuranceStepNumber"
       transition-next="jump-right"
       transition-prev="jump-left"
+      @loadeddata="test"
       header-class="Mobile"
       ref="stepper"
       animated
@@ -115,8 +116,8 @@ export default {
     const HandelButtonInsurence = (Name) => {
       Store.commit("HandelButtonInsurence", Name);
     };
-    const test = (test) => {
-      console.log(test);
+    const test = () => {
+      console.log('test');
     };
     return {
       HandelButtonInsurence,

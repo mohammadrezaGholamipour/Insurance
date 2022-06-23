@@ -398,7 +398,7 @@ export default store(function () {
         }
         ////////////////////////////////////////////////////////////////////
         insurancesInput[index].Value = Data;
-
+        ////////////////////////////////////////////////////////////////////
         const StepOneInputValue = Step1.every((items) => {
           return items.Value !== null && items.Value !== "";
         });
@@ -408,6 +408,7 @@ export default store(function () {
         const StepThreeInputValue = Step3.every((items) => {
           return items.Value !== null && items.Value !== "";
         });
+        ////////////////////////////////////////////////////////////////////
         if (state.InsuranceStepNumber === 1) {
           if (StepOneInputValue) {
             state.InsuranceStepButton[0].Disable = false;
@@ -415,6 +416,7 @@ export default store(function () {
             state.InsuranceStepButton[0].Disable = true;
           }
         }
+        ////////////////////////////////////////////////////////////////////
         if (state.InsuranceStepNumber === 2) {
           if (Step2[0].Value === "خیر") {
             state.InsuranceStepButton[0].Disable = false;
@@ -424,6 +426,7 @@ export default store(function () {
             state.InsuranceStepButton[0].Disable = true;
           }
         }
+        ////////////////////////////////////////////////////////////////////
         if (state.InsuranceStepNumber === 3) {
           if (Step3[0].Value === "خیر") {
             state.InsuranceStepButton[0].Disable = false;
