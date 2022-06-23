@@ -373,6 +373,14 @@ export default store(function () {
               insurancesInput.forEach((items) => {
                 items.Value = "";
               });
+              Step2.forEach((items) => {
+                items.Disable = true;
+              });
+              Step3.forEach((items) => {
+                items.Disable = true;
+              });
+              Step2[0].Disable = false;
+              Step3[0].Disable = false;
             }
           } else {
             insurancesInput.forEach((items) => {
