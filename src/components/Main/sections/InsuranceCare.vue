@@ -18,6 +18,7 @@
         active-color="primary"
         :title="items.Header"
         :color="items.Color"
+        @change="test(items.Step)"
         :name="items.Step"
         :icon="items.Icon"
         done-color="green"
@@ -114,7 +115,9 @@ export default {
     const HandelButtonInsurence = (Name) => {
       Store.commit("HandelButtonInsurence", Name);
     };
-
+    const test = (test) => {
+      console.log(test);
+    };
     return {
       HandelButtonInsurence,
       HandelInputInsurence,
@@ -125,6 +128,7 @@ export default {
       stringOptions,
       options,
       Store,
+      test,
 
       filterFn(val, update) {
         if (val === "") {

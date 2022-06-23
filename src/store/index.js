@@ -187,7 +187,7 @@ export default store(function () {
             "405 GLX پژو",
             "207 SD پژو",
             "SD 206 پژو",
-            "I 207 پژو",
+            "207I پژو",
             "پژو 2008",
             "پژو 206",
           ],
@@ -198,15 +198,26 @@ export default store(function () {
         },
         {
           Name: "ساینا",
-          Models: ["دنده ای"],
+          Models: ["ساینا اتوماتیک", "SX ساینا", "EX ساینا", "S ساینا"],
         },
         {
           Name: "کوئیک",
-          Models: ["دنده ای", "اتوماتیک"],
+          Models: [
+            "کوئیک پلاس اتوماتیک",
+            "کوئیک دنده ای",
+            "G کوئیک",
+            "R کوئیک",
+            "S کوئیک",
+          ],
         },
         {
           Name: "دنا",
-          Models: ["دنا معمولی", "دنا پلاس"],
+          Models: [
+            "دنا پلاس توربو اتوماتیک",
+            "دنا پلاس توربو دنده ای",
+            "دنا پلاس ساده",
+            "دنا معمولی",
+          ],
         },
         {
           Name: "رانا",
@@ -405,7 +416,7 @@ export default store(function () {
           }
         }
         if (state.InsuranceStepNumber === 2) {
-          if ((Step2[0].Value === "خیر")) {
+          if (Step2[0].Value === "خیر") {
             state.InsuranceStepButton[0].Disable = false;
           } else if (StepTowInputValue) {
             state.InsuranceStepButton[0].Disable = false;
@@ -414,7 +425,9 @@ export default store(function () {
           }
         }
         if (state.InsuranceStepNumber === 3) {
-          if (StepThreeInputValue) {
+          if (Step3[0].Value === "خیر") {
+            state.InsuranceStepButton[0].Disable = false;
+          } else if (StepThreeInputValue) {
             state.InsuranceStepButton[0].Disable = false;
           } else {
             state.InsuranceStepButton[0].Disable = true;
