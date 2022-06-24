@@ -5,26 +5,42 @@
     v-model="HideAndShowForm"
   >
     <div id="Main">
-      <form v-show="SigninOrSingupForm" action="#">
-        <h3>ثبت نام</h3>
-        <div class="social-container">
-          <a class="social bg-primary text-white"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a class="social bg-red text-white"
-            ><i class="fab fa-google-plus-g"></i
-          ></a>
-          <a class="social bg-info text-white"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
+      <q-form v-show="SigninOrSingupForm" @submit="onSubmit" @reset="onReset">
+        <q-input
+          filled
+          v-model="name"
+          label="Your name *"
+          hint="Name and surname"
+          lazy-rules
+          :rules="[(val) => (val && val.length > 0) || 'Please type something']"
+        />
+
+        <q-input
+          filled
+          type="number"
+          v-model="age"
+          label="Your age *"
+          lazy-rules
+          :rules="[
+            (val) => (val !== null && val !== '') || 'Please type your age',
+            (val) => (val > 0 && val < 100) || 'Please type a real age',
+          ]"
+        />
+
+        <q-toggle v-model="accept" label="I accept the license and terms" />
+
+        <div>
+          <q-btn label="Submit" type="submit" color="primary" />
+          <q-btn
+            label="Reset"
+            type="reset"
+            color="primary"
+            flat
+            class="q-ml-sm"
+          />
         </div>
-        <span>ورود از طریق شبکه های اجتماعی</span>
-        <input type="text" placeholder="نام کاربری" />
-        <input type="email" placeholder="ایمیل" />
-        <input type="password" placeholder="رمز عبور" />
-        <a href="#" @click="HandelSigninOrSingupForm">قبلا ثبت نام کرده اید؟</a>
-        <button>تایید</button>
-      </form>
+      </q-form>
+
       <form action="#" v-show="!SigninOrSingupForm">
         <h3>وارد شدن</h3>
         <div class="social-container">
@@ -50,12 +66,17 @@
 </template>
 
 <script>
-import { computed } from "@vue/runtime-core";
+import { computed, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
 
 export default {
   setup() {
     const Store = useStore();
+    const UserSignUp = ref([
+      { Id: 1, Type: "email", Placeholder: "ایمیل", Value: "" },
+      { Id: 2, Type: "password", Placeholder: "رمز عبور", Value: "" },
+      { Id: 3, Type: "password", Placeholder: "تکرار رمز عبور", Value: "" },
+    ]);
     const HideAndShowForm = computed({
       get() {
         return Store.getters.StateGetter("HideAndShowForm");
@@ -73,6 +94,7 @@ export default {
 
     return {
       Store,
+      UserSignUp,
       HideAndShowForm,
       SigninOrSingupForm,
       HandelSigninOrSingupForm,
