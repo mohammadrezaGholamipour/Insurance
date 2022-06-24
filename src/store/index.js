@@ -378,6 +378,7 @@ export default store(function () {
               Price += (Price / 100) * 100;
             }
           }
+
           state.InsurancePrice = Price.toLocaleString();
         }
         //////////////////////////////////////////////////////////////////

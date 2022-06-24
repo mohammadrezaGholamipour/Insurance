@@ -58,7 +58,7 @@
               </q-select>
               <div id="Price" class="shadow-5" v-show="items.Step > 3">
                 <div>
-                  <h5 class="q-my-none q-mx-sm">میلیون تومان</h5>
+                  <h5 class="q-my-none q-mx-sm"></h5>
                   <h4 class="q-ma-none">{{ InsurancePrice }}</h4>
                 </div>
 
