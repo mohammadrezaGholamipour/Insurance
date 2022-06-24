@@ -58,7 +58,7 @@
               </q-select>
               <div id="Price" class="shadow-5" v-show="items.Step > 3">
                 <div>
-                  <h5 class="q-my-none q-mx-sm"></h5>
+                  <h6 class="q-my-none q-mx-sm">میلیون تومان</h6>
                   <h4 class="q-ma-none">{{ InsurancePrice }}</h4>
                 </div>
 
@@ -194,6 +194,24 @@ export default {
 
   border-radius: 10px;
 }
+.q-stepper--horizontal .q-stepper__line:before,
+.q-stepper--horizontal .q-stepper__line:after {
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 0 !important;
+  background: rgba(0, 0, 0, 0.12);
+}
+.q-select .q-field__input {
+  min-width: 0 !important;
+  cursor: pointer;
+}
+.ellipsis {
+  text-overflow: initial !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 #Price div {
   justify-content: center;
   align-items: center;
@@ -276,6 +294,7 @@ export default {
 
 .q-field__label {
   right: 0 !important;
+  direction: rtl !important;
   top: 18px;
   max-width: 100%;
   text-align: right;
@@ -283,7 +302,7 @@ export default {
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
-  letter-spacing: 0.00937em;
+  letter-spacing: 0em;
   text-decoration: inherit;
   text-transform: inherit;
   transform-origin: right top !important;
