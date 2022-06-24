@@ -224,6 +224,13 @@ export default {
 .on-left {
   margin: 0 !important;
 }
+.Mobile {
+  direction: rtl;
+}
+.q-stepper__dot {
+  margin-right: 0 !important;
+  margin-left: 8px !important;
+}
 @media screen and (max-width: 687px) {
   .Mobile {
     display: none;
