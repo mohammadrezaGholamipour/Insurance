@@ -73,11 +73,6 @@ export default {
   margin: auto;
   height: 100%;
 }
-#SkeltonInsuranceCompany {
-  width: 90%;
-  height: 250px;
-  border: 2px solid orange;
-}
 .q-carousel {
   background: none !important;
   height: 250px;
