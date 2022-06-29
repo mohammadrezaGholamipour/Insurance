@@ -1,6 +1,4 @@
-# Quasar App (quasar-project)
-
-A Quasar Project
+# Insurance App
 
 ## Install the dependencies
 ```bash
