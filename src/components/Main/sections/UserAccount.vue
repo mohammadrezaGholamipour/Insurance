@@ -5,7 +5,7 @@
     v-model="HideAndShowForm"
   >
     <div id="Main">
-      <form @submit.prevent v-show="SigninOrSingupForm">
+      <form novalidate @submit.prevent v-show="SigninOrSingupForm">
         <h3>ثبت نام</h3>
         <div class="social-container">
           <a class="social bg-primary text-white"
@@ -21,10 +21,10 @@
         <span>ورود از طریق شبکه های اجتماعی</span>
         <template v-for="items in Account.UserSignUp" :key="items.Id">
           <input
+            @change="InputUserSignUp($event, items.Id)"
             :placeholder="items.Placeholder"
             v-model="items.Value"
             :type="items.Type"
-            @change="InputUserSignUp(items.Id)"
           />
           <span id="Alert">{{ items.Alert }}</span>
         </template>
@@ -100,6 +100,9 @@ export default {
         return Store.getters.StateGetter("HideAndShowForm");
       },
       set() {
+        Account.UserSignUp.forEach(
+          (items) => ((items.Value = ""), (items.Alert = ""))
+        );
         Store.commit("HandelHideAndShowForm");
       },
     });
@@ -109,7 +112,8 @@ export default {
     const HandelSigninOrSingupForm = () => {
       Store.commit("HandelSigninOrSingupForm");
     };
-    const InputUserSignUp = (id) => {
+    const InputUserSignUp = ($event, id) => {
+      console.log($event);
       if (id === 1) {
         if (Account.UserSignUp[0].Value.includes("@gmail.com")) {
           Account.UserSignUp[0].Alert = "";
@@ -147,16 +151,20 @@ export default {
             message: "ثبت نام انجام نشد لطفا دوباره امتحان کنید",
             color: "negative",
           });
+          Account.UserSignUp.forEach(
+            (items) => ((items.Value = ""), (items.Alert = ""))
+          );
         } else {
           $q.notify({
             position: "top",
             message: "با موفقیت انجام شد",
             color: "positive",
           });
+          Account.UserSignUp.forEach(
+            (items) => ((items.Value = ""), (items.Alert = ""))
+          );
         }
         Store.commit("HandelHideAndShowForm");
-
-        Account.UserSignUp.forEach((items) => (items.Value = ""));
       } else {
         $q.notify({
           position: "top",
