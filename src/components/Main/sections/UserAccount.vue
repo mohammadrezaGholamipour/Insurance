@@ -5,42 +5,33 @@
     v-model="HideAndShowForm"
   >
     <div id="Main">
-      <q-form v-show="SigninOrSingupForm" @submit="onSubmit" @reset="onReset">
-        <q-input
-          filled
-          v-model="name"
-          label="Your name *"
-          hint="Name and surname"
-          lazy-rules
-          :rules="[(val) => (val && val.length > 0) || 'Please type something']"
-        />
-
-        <q-input
-          filled
-          type="number"
-          v-model="age"
-          label="Your age *"
-          lazy-rules
-          :rules="[
-            (val) => (val !== null && val !== '') || 'Please type your age',
-            (val) => (val > 0 && val < 100) || 'Please type a real age',
-          ]"
-        />
-
-        <q-toggle v-model="accept" label="I accept the license and terms" />
-
-        <div>
-          <q-btn label="Submit" type="submit" color="primary" />
-          <q-btn
-            label="Reset"
-            type="reset"
-            color="primary"
-            flat
-            class="q-ml-sm"
-          />
+      <form @submit.prevent v-show="SigninOrSingupForm">
+        <h3>ثبت نام</h3>
+        <div class="social-container">
+          <a class="social bg-primary text-white"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a class="social bg-red text-white"
+            ><i class="fab fa-google-plus-g"></i
+          ></a>
+          <a class="social bg-info text-white"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
         </div>
-      </q-form>
-
+        <span>ورود از طریق شبکه های اجتماعی</span>
+        <template v-for="items in Account.UserSignUp" :key="items.Id">
+          <input
+            :placeholder="items.Placeholder"
+            v-model="items.Value"
+            :type="items.Type"
+            @change="InputUserSignUp(items.Id)"
+          />
+          <span id="Alert">{{ items.Alert }}</span>
+        </template>
+        <a href="#">رمز خود را فراموش کرده اید؟</a>
+        <a href="#" @click="HandelSigninOrSingupForm">قبلا اکانت ساخته اید؟</a>
+        <button @click="SingupForm">تایید</button>
+      </form>
       <form action="#" v-show="!SigninOrSingupForm">
         <h3>وارد شدن</h3>
         <div class="social-container">
@@ -66,17 +57,44 @@
 </template>
 
 <script>
-import { computed, ref } from "@vue/runtime-core";
+import { useQuasar } from "quasar";
+import { computed, reactive } from "@vue/runtime-core";
+import { supabase } from "../../../boot/supabase";
 import { useStore } from "vuex";
 
 export default {
   setup() {
+    const $q = useQuasar();
     const Store = useStore();
-    const UserSignUp = ref([
-      { Id: 1, Type: "email", Placeholder: "ایمیل", Value: "" },
-      { Id: 2, Type: "password", Placeholder: "رمز عبور", Value: "" },
-      { Id: 3, Type: "password", Placeholder: "تکرار رمز عبور", Value: "" },
-    ]);
+    const Account = reactive({
+      UserSignUp: [
+        {
+          Id: 1,
+          Type: "email",
+          Placeholder: "ایمیل",
+          Value: "",
+          Alert: "",
+        },
+        {
+          Id: 2,
+          Type: "password",
+          Placeholder: "رمز عبور",
+          Value: "",
+          Alert: "",
+        },
+        {
+          Id: 3,
+          Type: "password",
+          Placeholder: "تکرار رمز عبور",
+          Value: "",
+          Alert: "",
+        },
+      ],
+      UserSignIn: [
+        { Id: 1, Type: "email", Placeholder: "ایمیل", Value: "" },
+        { Id: 2, Type: "password", Placeholder: "رمز عبور", Value: "" },
+      ],
+    });
     const HideAndShowForm = computed({
       get() {
         return Store.getters.StateGetter("HideAndShowForm");
@@ -91,11 +109,68 @@ export default {
     const HandelSigninOrSingupForm = () => {
       Store.commit("HandelSigninOrSingupForm");
     };
+    const InputUserSignUp = (id) => {
+      if (id === 1) {
+        if (Account.UserSignUp[0].Value.includes("@gmail.com")) {
+          Account.UserSignUp[0].Alert = "";
+        } else {
+          Account.UserSignUp[0].Alert = "لطفا ایمیل را به درستی وارد کنید";
+        }
+      } else if (id === 2) {
+        if (Account.UserSignUp[1].Value.length > 5) {
+          Account.UserSignUp[1].Alert = "";
+        } else {
+          Account.UserSignUp[1].Alert = "رمز شما باید بیشتر از پنج رقم باشد";
+        }
+      } else {
+        if (Account.UserSignUp[2].Value === Account.UserSignUp[1].Value) {
+          Account.UserSignUp[2].Alert = "";
+        } else {
+          Account.UserSignUp[2].Alert = "رمز خود را اشتباه وارد کرده اید";
+        }
+      }
+    };
+    const SingupForm = async () => {
+      let UserSignUp = Account.UserSignUp.every(
+        (items) => items.Alert === "" && items.Value !== ""
+      );
+      let Password =
+        Account.UserSignUp[2].Value === Account.UserSignUp[1].Value;
+      if (UserSignUp && Password) {
+        let { user, error } = await supabase.auth.signUp({
+          email: Account.UserSignUp[0].Value,
+          password: Account.UserSignUp[1].Value,
+        });
+        if (error) {
+          $q.notify({
+            position: "top",
+            message: "ثبت نام انجام نشد لطفا دوباره امتحان کنید",
+            color: "negative",
+          });
+        } else {
+          $q.notify({
+            position: "top",
+            message: "با موفقیت انجام شد",
+            color: "positive",
+          });
+        }
+        Store.commit("HandelHideAndShowForm");
 
+        Account.UserSignUp.forEach((items) => (items.Value = ""));
+      } else {
+        $q.notify({
+          position: "top",
+          message: "اطلاعات را کامل وارد کنید",
+          color: "negative",
+        });
+      }
+    };
     return {
       Store,
-      UserSignUp,
+      Account,
+      SingupForm,
       HideAndShowForm,
+      InputUserSignUp,
       SigninOrSingupForm,
       HandelSigninOrSingupForm,
     };
@@ -108,6 +183,10 @@ export default {
   border: 3px solid orange;
   border-radius: 20px;
   width: 328px;
+  overflow: hidden;
+}
+#Alert {
+  color: red;
 }
 .social-container {
   margin: 20px 0;

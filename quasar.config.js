@@ -8,11 +8,9 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js
 
+const ESLintPlugin = require("eslint-webpack-plugin");
 
-const ESLintPlugin = require('eslint-webpack-plugin')
-
-
-const { configure } = require('quasar/wrappers');
+const { configure } = require("quasar/wrappers");
 
 module.exports = configure(function (ctx) {
   return {
@@ -86,6 +84,7 @@ module.exports = configure(function (ctx) {
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
     framework: {
+      plugins: ["Notify"],
       config: {},
 
       // iconSet: 'material-icons', // Quasar icon set
