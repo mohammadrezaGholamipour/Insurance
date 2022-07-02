@@ -25,6 +25,7 @@
             :placeholder="items.Placeholder"
             v-model="items.Value"
             :type="items.Type"
+            autofocus
           />
           <span id="Alert">{{ items.Alert }}</span>
         </template>
@@ -157,7 +158,7 @@ export default {
         } else {
           $q.notify({
             position: "top",
-            message: "با موفقیت انجام شد",
+            message: `خوش آمدید ${Account.UserSignUp[0].Value}`,
             color: "positive",
           });
           Account.UserSignUp.forEach(
@@ -190,8 +191,9 @@ export default {
 #Main {
   border: 3px solid orange;
   border-radius: 20px;
-  width: 328px;
   overflow: hidden;
+  width: 328px;
+  height: auto;
 }
 #Alert {
   color: red;
@@ -229,6 +231,7 @@ input {
   border: none;
   width: 100%;
 }
+
 button {
   transition: transform 80ms ease-in;
   border: 1px solid #ff4b2b;
